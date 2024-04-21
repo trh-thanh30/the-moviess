@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from "react";
 
 const SignUpPage = () => {
-    return (
-        <div>
-        </div>
-    );
+  useEffect(() => {
+    document.title = "The Movies || Sign Up";
+  }, []);
+  return <div>Sign Up page</div>;
 };
 
 export default SignUpPage;
