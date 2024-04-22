@@ -1,0 +1,55 @@
+.header-link{
+    transition: all 0.25s;
+    &:hover{
+        color: #C40E61;
+    }
+}
+
+.header-slider{
+    position: absolute;
+    top: 39%;
+    right: 72%;
+}
+.star-slider{
+    position: absolute;
+    top: 39%;
+    right: 72%;
+}
+.btn-silde{
+    position: absolute;
+    right: 70%;
+    top: 45%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    &:hover{
+        opacity: 0.95;
+    }
+}
+.title-silde{
+    position: absolute;
+    top: 57%;
+    left: 5%;
+}
+
+.title-silde__1{
+    position: absolute;
+    top: 57%;
+    left: 13%;
+}
+
+.title-silde__2{
+    position: absolute;
+    top: 57%;
+    left: 24%;
+}
+
+.desc-silde{
+    position: absolute;
+    top: 67%;
+    left: 5%;
+}
+
+.division{
+    border: 1px solid #504A7980;
+    width: 100%;
+}

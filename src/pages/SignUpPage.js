@@ -3,7 +3,7 @@ import logo from "../assets/image/the-moviess.svg";
 import logoMovies from "../assets/image/logo-image.svg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import IconEyeClose from "../icon/IconEyeClose";
 import IconEyeOpen from "../icon/IconEyeOpen";
 import { toast } from "react-toastify";
@@ -175,6 +175,17 @@ const SignUpPage = () => {
           >
             {loading ? <div className="loader"></div> : "Sign Up"}
           </button>
+          <div className="mt-8 mb-8 text-center">
+            <span className="text-lg text-gray-400">
+              Do you already have an account?{" "}
+            </span>
+            <NavLink
+              className="text-lg text-green-500 border-b border-gray-400"
+              to={"/sign-in"}
+            >
+              Sign in now
+            </NavLink>
+          </div>
         </form>
       </div>
     </div>

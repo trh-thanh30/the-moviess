@@ -4,6 +4,8 @@
 @tailwind utilities;
 @import "signIn";
 @import "notfound";
+@import "header";
+@import "footer";
 .container {
     width: 100%;
     max-width: 1180px;
