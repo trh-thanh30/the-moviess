@@ -9,6 +9,14 @@ import IconEyeClose from "../icon/IconEyeClose";
 import IconEyeOpen from "../icon/IconEyeOpen";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth, db } from "../firebase/firebase-config";
+import { addDoc, collection } from "firebase/firestore";
+
 const SignInPage = () => {
   const [tooglePassword, setTooglePassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -27,14 +35,37 @@ const SignInPage = () => {
         .required("Please enter your password"),
     }),
     onSubmit: (values) => {
-      setTimeout(() => {
-        navigate("/");
-        toast.success("Logged in successfully !!! Hello there 😽👋");
-        console.log("Register sucess");
-        console.log(values);
-      }, 1000);
+      try {
+        setTimeout(async () => {
+          setLoading(true);
+          const userCredential = await signInWithEmailAndPassword(
+            auth,
+            values.email,
+            values.password
+          );
+          console.log(userCredential);
+          const useRef = collection(db, "users");
+          await addDoc(useRef, {
+            email: values.email,
+            password: values.password,
+          });
+          setLoading(false);
+          navigate("/");
+          toast.success(
+            `Logged in successfully !!! Hello ${values.email} 😽👋`
+          );
+          console.log(values);
+        }, 1500);
+      } catch (error) {
+        toast.error("There was an error logging in. Please try again");
+        console.log(error);
+      }
     },
   });
+  const handleSignInWithEmail = async (e) => {
+    const provider = await new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
 
   useEffect(() => {
     document.title = "The Moives || Sign In";
@@ -120,8 +151,7 @@ const SignInPage = () => {
           <button
             type="submit"
             className="button-form"
-            disabled={formik.isSubmitting}
-            onClick={() => setLoading(true)}
+            disabled={formik.isSubmitting || !formik.isValid}
           >
             {loading ? <div className="loader"></div> : "Sign In"}
           </button>
@@ -133,7 +163,10 @@ const SignInPage = () => {
           </div>
         </form>
         <div className="max-w-[600px] mx-auto">
-          <button className="p-3 bg-white border rounded-2xl border-gray-300 text-gray-400 text-lg w-[100%] outline-none">
+          <button
+            onClick={handleSignInWithEmail}
+            className="p-3 bg-white border rounded-2xl border-gray-300 text-gray-400 text-lg w-[100%] outline-none"
+          >
             <div className="flex items-center">
               <img className="w-6 h-6" src={gmail} alt="" />
               <p className="block mx-auto">Continue with Gmail</p>
