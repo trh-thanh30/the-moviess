@@ -8,7 +8,11 @@ import IconEyeClose from "../icon/IconEyeClose";
 import IconEyeOpen from "../icon/IconEyeOpen";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  updateProfile,
+} from "firebase/auth";
 import { auth, db } from "../firebase/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 
@@ -30,18 +34,23 @@ const SignUpPage = () => {
         .email("Please enter the correct email format : 'example@gmail.com' ")
         .required("Please enter your email address"),
       password: Yup.string()
-        .max(18, "Your password must be 18 characters or less")
+        .min(6, "Your password must be 6 characters or longer")
         .required("Please enter your password"),
     }),
     onSubmit: (values) => {
       try {
         setTimeout(async () => {
           setLoading(true);
+          const auth = getAuth();
           const userCredential = await createUserWithEmailAndPassword(
             auth,
             values.email,
             values.password
           );
+          const user = userCredential.user;
+          await updateProfile(auth.currentUser, {
+            displayName: values.fullName,
+          });
           console.log(userCredential);
 
           const useRef = collection(db, "users");
@@ -50,6 +59,7 @@ const SignUpPage = () => {
             email: values.email,
             password: values.password,
           });
+
           setLoading(false);
           navigate("/");
           toast.success(
@@ -58,8 +68,13 @@ const SignUpPage = () => {
           console.log(values);
         }, 1500);
       } catch (error) {
-        toast.error("There was an error logging in. Please try again");
-        console.log(error);
+        if (error.code === "auth/email-already-in-use") {
+          toast.error(
+            "The email address you entered is already in use. Please try a different email or reset your password if you have forgotten it."
+          );
+        } else {
+          toast.error("There was an error logging in. Please try again");
+        }
       }
     },
   });

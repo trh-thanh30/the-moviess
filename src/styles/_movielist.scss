@@ -1,0 +1,33 @@
+.time-border {
+  border: 1px solid #f00;
+}
+.movie-list .swiper-slide {
+  width: 256px;
+}
+
+.image__hover {
+  position: relative;
+}
+.image__father {
+  transition: all 0.25s ease-in-out;
+}
+.image__play {
+  left: 106px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s;
+}
+
+.image__hover:hover .image__play {
+  opacity: 1;
+  transform: translateY(-10px);
+  translate: 0 -3px;
+  visibility: visible;
+}
+.image__hover:hover .image__father {
+  opacity: 0.8;
+  transform: scale(1.04);
+}

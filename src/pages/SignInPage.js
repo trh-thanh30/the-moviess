@@ -31,7 +31,7 @@ const SignInPage = () => {
         .email("Please enter the correct email format : 'example@gmail.com' ")
         .required("Please enter your email address"),
       password: Yup.string()
-        .max(18, "Your password must be 18 characters or less")
+        .min(6, "Your password must be 6 characters or longer")
         .required("Please enter your password"),
     }),
     onSubmit: (values) => {
@@ -44,11 +44,6 @@ const SignInPage = () => {
             values.password
           );
           console.log(userCredential);
-          const useRef = collection(db, "users");
-          await addDoc(useRef, {
-            email: values.email,
-            password: values.password,
-          });
           setLoading(false);
           navigate("/");
           toast.success(
@@ -57,8 +52,16 @@ const SignInPage = () => {
           console.log(values);
         }, 1500);
       } catch (error) {
-        toast.error("There was an error logging in. Please try again");
-        console.log(error);
+        if (error.code === "auth/invalid-credential") {
+          toast.error("The email or password you entered is incorrect.");
+        } else if (error.code === "auth/user-disabled") {
+          toast.error(
+            "Your account has been disabled. Please contact support."
+          );
+        } else {
+          toast.error("An error occurred during sign-in. Please try again.");
+          console.error(error);
+        }
       }
     },
   });

@@ -6,10 +6,10 @@ import facebook from "../assets/image/facebook.svg";
 import youtube from "../assets/image/youtube.svg";
 import telegram from "../assets/image/telegram.svg";
 import mess from "../assets/image/mess.svg";
-import github from "../assets/image/github.svg"
+import github from "../assets/image/github.svg";
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="mt-14 footer">
       <div class="container">
         <div class="footer__row">
           <div class="footer__col">
@@ -115,12 +115,23 @@ const Footer = () => {
         </div>
 
         <div class="footer__bottom">
-          <p class="footer__copyright">
-            © 2005 - 2024 The Movies. All rights reserved.
-          </p>
-
+          <div>
+            <form action="" className="flex items-center gap-x-2">
+              <input
+                placeholder="Send my your valuate"
+                className="p-4 border border-green-500 rounded-lg outline-none w-[320px]"
+                type="text"
+                name=""
+                id=""
+              />{" "}
+              <button type="submit" className="p-4 text-green-500 bg-green-100 rounded-lg">SEND</button>
+            </form>
+            <p class="footer__copyright mt-4 ">
+              © 2005 - 2024 The Movies. All rights reserved.
+            </p>
+          </div>
           <div class="footer__socials">
-            <NavLink  className="footer__social-link">
+            <NavLink className="footer__social-link">
               <img src={facebook} alt="" />
             </NavLink>
             <NavLink className="footer__social-link">

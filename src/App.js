@@ -5,6 +5,8 @@ import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import TrendingPage from "./pages/TrendingPage";
+import SeriMoviesPage from "./pages/SeriMoviesPage";
+import CartoonPage from "./pages/CartoonPage";
 const App = () => {
   return (
     <>
@@ -14,6 +16,18 @@ const App = () => {
         <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
         <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
         <Route path="/trending" element={<TrendingPage></TrendingPage>}></Route>
+        <Route
+          path="/seri-movies"
+          element={<SeriMoviesPage></SeriMoviesPage>}
+        ></Route>
+          <Route
+          path="/cartoon-movie"
+          element={<CartoonPage></CartoonPage>}
+        ></Route>
+          <Route
+          path="/tv-series"
+          element={<SeriMoviesPage></SeriMoviesPage>}
+        ></Route>
       </Routes>
     </>
   );

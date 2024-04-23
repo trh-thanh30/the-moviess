@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import MoviePageBody from "../components/MoviePageBody";
 import Slider from "../components/Slider";
+import MoviePageBody from "../components/MoviePageBody";
 
 const HomePage = () => {
   useEffect(() => {
