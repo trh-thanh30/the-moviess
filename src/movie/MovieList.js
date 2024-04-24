@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import {} from "swiper";
 import "swiper/scss";
 import useSWR from "swr";
 import MovieCard from "../pages/MovieCard";
@@ -20,8 +24,21 @@ const MovieList = ({ callAPI }) => {
     <>
       {loading && <div className="loading"></div>}
       <div className="movie-list">
-        <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
-          {!loading && movies.length > 0 &&
+        <Swiper
+          className="-ml-16 -mr-16"
+          centeredSlides={false}
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          grabCursor={"true"}
+          spaceBetween={20}
+          slidesPerView={"auto"}
+        >
+          {!loading &&
+            movies.length > 0 &&
             movies.map((item) => (
               <SwiperSlide key={item.id}>
                 <MovieCard item={item}></MovieCard>

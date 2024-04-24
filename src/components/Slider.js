@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import BannerItem from "./BannerItem";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import useSWR from "swr";
 import { fetcher } from "../config";
 
@@ -21,7 +24,21 @@ const Slider = () => {
   return (
     <div>
       {loading && <div className="loading"></div>}
-      <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
+      <Swiper
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        grabCursor={"true"}
+        spaceBetween={40}
+        slidesPerView={"auto"}
+      >
         {!loading &&
           movies.length > 0 &&
           movies.map((item) => (
