@@ -34,23 +34,19 @@ const SignInPage = () => {
         .min(6, "Your password must be 6 characters or longer")
         .required("Please enter your password"),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       try {
-        setTimeout(async () => {
-          setLoading(true);
-          const userCredential = await signInWithEmailAndPassword(
-            auth,
-            values.email,
-            values.password
-          );
-          console.log(userCredential);
-          setLoading(false);
-          navigate("/");
-          toast.success(
-            `Logged in successfully !!! Hello ${values.email} 😽👋`
-          );
-          console.log(values);
-        }, 1500);
+        setLoading(true);
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          values.email,
+          values.password
+        );
+        console.log(userCredential);
+        setLoading(false);
+        navigate("/");
+        toast.success(`Logged in successfully !!! Hello ${values.email} 😽👋`);
+        console.log(values);
       } catch (error) {
         if (error.code === "auth/invalid-credential") {
           toast.error("The email or password you entered is incorrect.");

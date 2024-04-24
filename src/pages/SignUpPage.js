@@ -37,36 +37,32 @@ const SignUpPage = () => {
         .min(6, "Your password must be 6 characters or longer")
         .required("Please enter your password"),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       try {
-        setTimeout(async () => {
-          setLoading(true);
-          const auth = getAuth();
-          const userCredential = await createUserWithEmailAndPassword(
-            auth,
-            values.email,
-            values.password
-          );
-          const user = userCredential.user;
-          await updateProfile(auth.currentUser, {
-            displayName: values.fullName,
-          });
-          console.log(userCredential);
+        setLoading(true);
+        const auth = getAuth();
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          values.email,
+          values.password
+        );
+        const user = userCredential.user;
+        await updateProfile(auth.currentUser, {
+          displayName: values.fullName,
+        });
+        console.log(userCredential);
 
-          const useRef = collection(db, "users");
-          await addDoc(useRef, {
-            fullName: values.fullName,
-            email: values.email,
-            password: values.password,
-          });
+        const useRef = collection(db, "users");
+        await addDoc(useRef, {
+          fullName: values.fullName,
+          email: values.email,
+          password: values.password,
+        });
 
-          setLoading(false);
-          navigate("/");
-          toast.success(
-            `Sign up successfully !!! Hello ${values.fullName} 😽👋`
-          );
-          console.log(values);
-        }, 1500);
+        setLoading(false);
+        navigate("/");
+        toast.success(`Sign up successfully !!! Hello ${values.fullName} 😽👋`);
+        console.log(values);
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {
           toast.error(
