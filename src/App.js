@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import TrendingPage from "./pages/TrendingPage";
 import SeriMoviesPage from "./pages/SeriMoviesPage";
 import CartoonPage from "./pages/CartoonPage";
+import HomePageDetails from "./pages/HomePageDetails";
 const App = () => {
   return (
     <>
@@ -20,13 +21,17 @@ const App = () => {
           path="/seri-movies"
           element={<SeriMoviesPage></SeriMoviesPage>}
         ></Route>
-          <Route
+        <Route
           path="/cartoon-movie"
           element={<CartoonPage></CartoonPage>}
         ></Route>
-          <Route
+        <Route
           path="/tv-series"
           element={<SeriMoviesPage></SeriMoviesPage>}
+        ></Route>
+        <Route
+          path="/movie/:movieSlug"
+          element={<HomePageDetails></HomePageDetails>}
         ></Route>
       </Routes>
     </>

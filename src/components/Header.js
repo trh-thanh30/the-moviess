@@ -27,10 +27,10 @@ const Header = () => {
   return (
     <div className="container">
       <div className="flex items-center justify-between mt-10">
-        <div className="flex items-center gap-x-3">
+        <NavLink to={"/"} className="flex items-center gap-x-3">
           <img src={logoMovies} alt="" />
           <img src={logo} alt="" />
-        </div>
+        </NavLink>
         <div className="relative text-base">
           <input
             type="text"

@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from "react";
-import imgSlide from "../assets/image/avatar.png";
+import React from "react";
 import watchLogo from "../assets/image/watch.svg";
-import axios from "axios"
 import { NavLink } from "react-router-dom";
-const BannerItem = () => {
-    const [item, setItem] = useState([]);
-    const handleFetchData = async () => {
-        // const data = await axios.get(`https://phimapi.com/v1/api/danh-sach/hoat-hinh`);
-        // console.log(data);
-    }
-    useEffect(() => {
-        handleFetchData();
-    },[])
+const BannerItem = ({ item }) => {
+  //https://img.phimapi.com/upload/vod/20240418-1/2b0dfd94043cc465a10993ea8544d89a.jpg
+  const { origin_name, thumb_url, slug } = item;
   return (
     <section className="mt-12">
       <div className="container">
-        <div className="relative">
+        <div className="relative flex">
           <h1 className="text-xl font-bold text-white header-slider">
-            Avatar: The Way of Water
+            {origin_name}
           </h1>
-          <img className="rounded-lg" src={imgSlide} alt="" />
-          <NavLink className="flex items-center p-4 text-xl text-white bg-red-500 rounded-lg gap-x-4 btn-silde">
+          <img className="rounded-lg" src={thumb_url} alt="" />
+          <NavLink
+            to={`/movie/${slug}`}
+            className="flex items-center p-4 text-xl text-white bg-red-500 rounded-lg gap-x-4 btn-silde"
+          >
             Watch Now
             <img src={watchLogo} alt="" />
           </NavLink>
@@ -36,14 +31,6 @@ const BannerItem = () => {
               Science Fiction
             </NavLink>
           </div>
-
-          <p className="text-base font-medium text-white desc-silde max-w-[626px]">
-            Set more than a decade after the events of the first film, learn the
-            story of the Sully family (Jake, Neytiri, and their kids), the
-            trouble that follows them, the lengths they go to keep each other
-            safe, the battles they fight to stay alive, and the tragedies they
-            endure.
-          </p>
         </div>
       </div>
     </section>

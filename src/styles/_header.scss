@@ -8,7 +8,10 @@
 .header-slider {
   position: absolute;
   top: 39%;
-  right: 72%;
+  left: 5%;
+  // background: linear-gradient(94.49deg, #2203ff 33.29%, #c40d60 67.01%);
+  // background-clip: text;
+  // color: transparent;
 }
 .star-slider {
   position: absolute;
@@ -55,8 +58,7 @@
 }
 
 .name__user {
-    background: linear-gradient(to right, #30CFD0 0%, #330867 100%); 
-    background-clip: text;
-    color: transparent;
-
+  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  background-clip: text;
+  color: transparent;
 }

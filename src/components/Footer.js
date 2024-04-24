@@ -7,7 +7,17 @@ import youtube from "../assets/image/youtube.svg";
 import telegram from "../assets/image/telegram.svg";
 import mess from "../assets/image/mess.svg";
 import github from "../assets/image/github.svg";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Footer = () => {
+  const submitUser = () => {
+    toast.success("Thank you for your reputation ❤️");
+  };
+  function handleSubmit(event) {
+    event.preventDefault();
+    event.target.reset();
+  }
+
   return (
     <div className="mt-14 footer">
       <div class="container">
@@ -18,7 +28,7 @@ const Footer = () => {
               <img src={logo} alt="" />
             </NavLink>
             <p class="footer__desc">
-              The Movies - Made by Tran Huu Thanh, a student studying Computer
+              The Movies - Made by Tran Huu Thanh, a freshman studying Computer
               Engineering at the University of Industrial Technology. The
               website provides a smooth movie watching experience, without
               annoying ads. Enjoy a rich collection from all genres, without
@@ -116,7 +126,11 @@ const Footer = () => {
 
         <div class="footer__bottom">
           <div>
-            <form action="" className="flex items-center gap-x-2">
+            <form
+              action=""
+              className="flex items-center gap-x-2"
+              onSubmit={handleSubmit}
+            >
               <input
                 placeholder="Send my your valuate"
                 className="p-4 border border-green-500 rounded-lg outline-none w-[320px]"
@@ -124,7 +138,13 @@ const Footer = () => {
                 name=""
                 id=""
               />{" "}
-              <button type="submit" className="p-4 text-green-500 bg-green-100 rounded-lg">SEND</button>
+              <button
+                onClick={submitUser}
+                type="submit"
+                className="p-4 text-green-500 bg-green-100 rounded-lg"
+              >
+                SEND
+              </button>
             </form>
             <p class="footer__copyright mt-4 ">
               © 2005 - 2024 The Movies. All rights reserved.

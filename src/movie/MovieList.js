@@ -14,7 +14,6 @@ const MovieList = ({ callAPI }) => {
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
   }, [data]);
-  console.log(movies);
 
   return (
     <div className="movie-list">
