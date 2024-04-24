@@ -11,21 +11,25 @@ const MovieList = ({ callAPI }) => {
     `https://phimapi.com/v1/api/danh-sach/${callAPI}`,
     fetcher
   );
+  const loading = !data && !error;
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
   }, [data]);
 
   return (
-    <div className="movie-list">
-      <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
-        {movies.length > 0 &&
-          movies.map((item) => (
-            <SwiperSlide key={item.id}>
-              <MovieCard item={item}></MovieCard>
-            </SwiperSlide>
-          ))}
-      </Swiper>
-    </div>
+    <>
+      {loading && <div className="loading"></div>}
+      <div className="movie-list">
+        <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
+          {!loading && movies.length > 0 &&
+            movies.map((item) => (
+              <SwiperSlide key={item.id}>
+                <MovieCard item={item}></MovieCard>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </div>
+    </>
   );
 };
 

@@ -7,19 +7,23 @@ import { fetcher } from "../config";
 
 const Slider = () => {
   const [movies, setMovies] = useState([]);
-  const { data, error, isLoading } = useSWR(
+  const { data, error } = useSWR(
     `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=1`,
     fetcher
   );
+  const loading = !data && !error;
   useEffect(() => {
     if (data && data.items) setMovies(data.items);
   }, [data]);
+
   console.log(movies);
 
   return (
     <div>
+      {loading && <div className="loading"></div>}
       <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
-        {movies.length > 0 &&
+        {!loading &&
+          movies.length > 0 &&
           movies.map((item) => (
             <SwiperSlide key={item.id}>
               <BannerItem item={item}></BannerItem>

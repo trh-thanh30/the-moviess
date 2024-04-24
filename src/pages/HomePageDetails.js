@@ -9,6 +9,10 @@ const HomePageDetails = () => {
   return (
     <div>
       <Header></Header>
+
+      <div>
+        
+      </div>
     </div>
   );
 };
