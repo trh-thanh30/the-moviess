@@ -28,9 +28,9 @@ const Footer = () => {
               <img src={logo} alt="" />
             </NavLink>
             <p class="footer__desc">
-              The Movies - Made by Tran Huu Thanh, a freshman studying Computer
-              Engineering at the University of Industrial Technology. The
-              website provides a smooth movie watching experience, without
+              The Movies - Made by Tran Huu Thanh, a freshman studying computer
+              engineering industry at the University of Industrial Technology.
+              The website provides a smooth movie watching experience, without
               annoying ads. Enjoy a rich collection from all genres, without
               limits, without restrictions. Just focus on enjoying and
               exploring, The Movies will take care of the rest.
