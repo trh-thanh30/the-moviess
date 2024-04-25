@@ -1,7 +1,7 @@
 import React from "react";
 import watchLogo from "../assets/image/watch.svg";
 import { NavLink } from "react-router-dom";
-const BannerItem = ({ item }) => {
+const BannerItem = React.memo( ({ item }) => {
   //https://img.phimapi.com/upload/vod/20240418-1/2b0dfd94043cc465a10993ea8544d89a.jpg
   const { origin_name, thumb_url, slug } = item;
   return (
@@ -35,6 +35,6 @@ const BannerItem = ({ item }) => {
       </div>
     </section>
   );
-};
+});
 
 export default BannerItem;

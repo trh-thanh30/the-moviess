@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css/pagination";
@@ -8,20 +8,23 @@ import "swiper/scss";
 import useSWR from "swr";
 import MovieCard from "../pages/MovieCard";
 import { fetcher } from "../config";
+import { Skeleton } from "react-loading-skeleton";
 const MovieList = ({ callAPI }) => {
   const [movies, setMovies] = useState([]);
-  // const callAPI = "";
-  const { data, error, isLoading } = useSWR(
+
+  const { data, error } = useSWR(
     `https://phimapi.com/v1/api/danh-sach/${callAPI}`,
     fetcher
   );
+
   const loading = !data && !error;
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
+    window.scrollTo(0, 0);
   }, [data]);
 
   return (
-    <>
+    <Fragment>
       {loading && <div className="loading"></div>}
       <div className="movie-list">
         <Swiper
@@ -40,13 +43,13 @@ const MovieList = ({ callAPI }) => {
           {!loading &&
             movies.length > 0 &&
             movies.map((item) => (
-              <SwiperSlide key={item.id}>
+              <SwiperSlide key={item._id}>
                 <MovieCard item={item}></MovieCard>
               </SwiperSlide>
             ))}
         </Swiper>
       </div>
-    </>
+    </Fragment>
   );
 };
 

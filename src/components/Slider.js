@@ -18,9 +18,6 @@ const Slider = () => {
   useEffect(() => {
     if (data && data.items) setMovies(data.items);
   }, [data]);
-
-  console.log(movies);
-
   return (
     <div>
       {loading && <div className="loading"></div>}
@@ -42,7 +39,7 @@ const Slider = () => {
         {!loading &&
           movies.length > 0 &&
           movies.map((item) => (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item._id}>
               <BannerItem item={item}></BannerItem>
             </SwiperSlide>
           ))}

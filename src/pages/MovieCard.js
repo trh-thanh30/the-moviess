@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import play from "../assets/image/play.svg";
 import timeIcon from "../assets/image/timeIcon.svg";
 import axios from "axios";
-const MovieCard = ({ item }) => {
+const MovieCard = React.memo(({ item }) => {
   //https://img.phimapi.com/upload/vod/20240418-1/2b0dfd94043cc465a10993ea8544d89a.jpg
   const { origin_name, poster_url, time, quality, slug } = item;
   function truncateString(str, maxLength) {
@@ -12,7 +12,6 @@ const MovieCard = ({ item }) => {
     }
     return str;
   }
-
   return (
     <div>
       <div>
@@ -43,6 +42,6 @@ const MovieCard = ({ item }) => {
       </div>
     </div>
   );
-};
+});
 
 export default MovieCard;
