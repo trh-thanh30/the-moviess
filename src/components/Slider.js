@@ -14,6 +14,7 @@ const Slider = () => {
     `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=1`,
     fetcher
   );
+  console.log("Ban", data);
   const loading = !data && !error;
   useEffect(() => {
     if (data && data.items) setMovies(data.items);

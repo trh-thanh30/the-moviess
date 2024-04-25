@@ -1,10 +1,8 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { cloneElement, useEffect, useState } from "react";
-import ReactPlayer from "react-player";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import useSWR from "swr";
 import { fetcher } from "../config";
-import video from "../assets/image/video.mp4";
 import Footer from "../components/Footer";
 import Comments from "../movie/Comments";
 import YouAlsoLike from "../movie/YouAlsoLike";
@@ -12,7 +10,6 @@ import { NavLink } from "react-router-dom";
 import addFvr from "../assets/image/add-fvr.svg";
 import date from "../assets/image/date.svg";
 import timeIcon from "../assets/image/timeIcon.svg";
-import star from "../assets/image/star.svg";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 const handleAddMovie = () => {
@@ -81,9 +78,9 @@ const HomePageDetails = () => {
 
   const handleEpisodeClick = (linkEmbed) => {
     setSever(linkEmbed);
-    toast.success(`You have successfully transferred files !!!`)
+    toast.success(`You have successfully transferred files !!!`);
   };
-  
+
   useEffect(() => {
     document.title = `The Movies || Movie Details`;
     window.scrollTo(0, 0);
@@ -186,7 +183,7 @@ const HomePageDetails = () => {
             <div className="my-20">
               <iframe
                 src={sever}
-                width="100%" // Fills container width
+                width="100%"
                 height="580px"
                 className="rounded-lg"
                 allowFullScreen
