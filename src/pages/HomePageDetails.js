@@ -1,31 +1,91 @@
-import React, { useEffect } from "react";
+/* eslint-disable jsx-a11y/iframe-has-title */
+import React, { cloneElement, useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 import Header from "../components/Header";
 import useSWR from "swr";
 import { fetcher } from "../config";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { NavLink, useParams } from "react-router-dom";
-import addFvr from "../assets/image/add-fvr.svg";
-import date from "../assets/image/date.svg";
-import timeIcon from "../assets/image/timeIcon.svg";
-import star from "../assets/image/star.svg";
 import video from "../assets/image/video.mp4";
 import Footer from "../components/Footer";
 import Comments from "../movie/Comments";
 import YouAlsoLike from "../movie/YouAlsoLike";
+import { NavLink } from "react-router-dom";
+import addFvr from "../assets/image/add-fvr.svg";
+import date from "../assets/image/date.svg";
+import timeIcon from "../assets/image/timeIcon.svg";
+import star from "../assets/image/star.svg";
+import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
+const handleAddMovie = () => {
+  toast.success("Movie added to favorites list !!!");
+};
 const HomePageDetails = () => {
   const { movieSlug } = useParams();
-  const { data, error, isLoading } = useSWR(
+  const { data, error } = useSWR(
     `https://phimapi.com/phim/${movieSlug}`,
     fetcher
   );
+  console.log("DATA", data);
+  const [movies, setMovies] = useState([]);
+  const [country, setCountry] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [sever, setSever] = useState([]);
+  const [episode, setEpisode] = useState([]);
   const loading = !data && !error;
-  const handleAddMovie = () => {
-    toast.success("Movie added to favorites list !!!");
-  };
-  console.log(data);
+
   useEffect(() => {
-    document.title = `The Movie || Movie Details`;
+    if (data && data.movie) return setMovies(data.movie);
+  }, [data]);
+  console.log("MOIVE", movies);
+
+  useEffect(() => {
+    if (data && data.movie && data.movie.category)
+      setCategory(data.movie.category);
+  }, [data]);
+  console.log("CTA", category);
+
+  useEffect(() => {
+    if (
+      data &&
+      data.movie &&
+      data.movie.country &&
+      data.movie.country[0] &&
+      data.movie.country[0].name
+    )
+      setCountry(data.movie.country[0].name);
+  }, [data]);
+  console.log("CTR", country);
+
+  useEffect(() => {
+    if (
+      data &&
+      data.episodes &&
+      data.episodes[0] &&
+      data.episodes[0].server_data &&
+      data.episodes[0].server_data[0] &&
+      data.episodes[0].server_data[0].link_embed
+    )
+      setSever(data.episodes[0].server_data[0].link_embed);
+  }, [data]);
+  console.log("SVE", sever);
+
+  useEffect(() => {
+    if (
+      data &&
+      data.episodes &&
+      data.episodes[0] &&
+      data.episodes[0].server_data
+    )
+      setEpisode(data.episodes[0].server_data);
+  }, [data]);
+  console.log("EPS", episode);
+
+  const handleEpisodeClick = (linkEmbed) => {
+    setSever(linkEmbed);
+    toast.success(`You have successfully transferred files !!!`)
+  };
+  
+  useEffect(() => {
+    document.title = `The Movies || Movie Details`;
     window.scrollTo(0, 0);
   }, []);
   return (
@@ -33,25 +93,27 @@ const HomePageDetails = () => {
       <div className="container">
         <Header></Header>
         {loading && <div className="loading"></div>}
+
         {!loading && (
           <div>
-            {" "}
-            <div className="flex mt-20 gap-x-8">
-              <section className="w-[352px] h-[460px]">
+            <div className="flex mt-20 gap-x-10">
+              <section className="w-[352px] h-[488px]">
                 <img
                   className="object-cover w-full h-full rounded-lg"
-                  src="https://plus.unsplash.com/premium_photo-1676927897948-7e563c6ec332?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c2xpZGV8ZW58MHx8MHx8fDA%3D"
+                  src={movies.poster_url}
                   alt=""
                 />
               </section>
               <section>
                 <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-semibold">Silo</h2>
+                  <h2 className="text-xl font-semibold">
+                    {movies.origin_name}
+                  </h2>
                   <div className="flex items-center p-4 bg-red-500 rounded-lg gap-x-2">
                     <img src={addFvr} alt="" />
                     <button
                       onClick={handleAddMovie}
-                      className="text-base font-normal text-white hover:opacity-8"
+                      className="text-base font-normal text-white hover:opacity-8 text-nowrap"
                     >
                       Add to Favourite
                     </button>
@@ -60,84 +122,97 @@ const HomePageDetails = () => {
 
                 <div className="flex items-center mt-14">
                   <div className="flex gap-x-3">
-                    <NavLink className="p-3 text-base font-semibold text-green-500 rounded-lg bg-green-50">
-                      Drama
-                    </NavLink>
-                    <NavLink className="p-3 text-base font-semibold text-green-500 rounded-lg bg-green-50">
-                      Science Fiction
-                    </NavLink>
+                    {category.length > 0 &&
+                      category.map((item) => (
+                        <NavLink className="p-3 text-base font-semibold text-green-500 rounded-lg bg-green-50">
+                          {item.name}
+                        </NavLink>
+                      ))}
                   </div>
                   <div className="ml-4">
                     <div className="flex items-center gap-x-3">
                       <img src={date} alt="" />
-                      <span>2023</span>
+                      <span>{movies.year}</span>
                     </div>
                   </div>
                   <div className="ml-4">
                     <div className="flex items-center gap-x-3">
                       <img src={timeIcon} alt="" />
-                      <span>50:38</span>
+                      <span>{movies.time}</span>
                     </div>
                   </div>
                   <div className="ml-4">
                     <div className="flex items-center gap-x-3">
-                      <img src={star} alt="" />
-                      <span>8.5</span>
+                      <div className="p-2 text-base font-semibold text-red-500 rounded-lg bg-red-50">
+                        {movies.quality}
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <p className="w-[708px] mt-6 text-base font-normal">
                   <span className="text-green-500">Content : </span>
-                  In a ruined and toxic future, a community exists in a giant
-                  underground silo that plunges hundreds of stories deep. There,
-                  men and women live in a society full of regulations they
-                  believe are meant to protect them.
+                  {movies.content}
                 </p>
 
-                <div className="flex flex-col mt-11 gap-y-2">
+                <div className="flex flex-col mt-8 gap-y-3">
                   <div>
                     <span className="text-green-500">Country : </span>
-                    <span>United States</span>
+                    <span>{country}</span>
                   </div>
 
                   <div>
                     <span className="text-green-500">Date Release : </span>
-                    <span>May 05 2023</span>
+                    <span>{movies.year}</span>
                   </div>
 
-                  <div>
-                    <span className="text-green-500">Cast : </span>
-                    <span className="max-w-[338px] text-wrap">
-                      Tim Robbins, Rebecca Ferguson, Avi Nash, Rashida Jones,
-                      David Oyewolo, Tim Robbins
-                    </span>
+                  <div className="flex items-center gap-x-2">
+                    <div className="flex items-center text-green-500 gap-x-2">
+                      Cast <span>:</span>{" "}
+                    </div>
+                    <p key={movies.name} className="movie__desc">
+                      {" " + movies.actor + " "}
+                    </p>
                   </div>
 
                   <div>
                     <span className="text-green-500">Director : </span>
-                    <span>HuuThanh</span>
+                    <span>{movies.director}</span>
                   </div>
                 </div>
               </section>
             </div>
+
             <div className="my-20">
-              <iFrame
-                sandbox=""
-                name="video"
-                className="w-full h-[500px] rounded-lg"
-                src={video}
-                allowfullscreen
-              ></iFrame>
+              <iframe
+                src={sever}
+                width="100%" // Fills container width
+                height="580px"
+                className="rounded-lg"
+                allowFullScreen
+                sandbox
+              ></iframe>
             </div>
+            <div className="mt-14">
+              <p className="text-xl font-semibold">EPISODE LIST</p>
+              <div className="grid grid-cols-10 mt-4 gap-x-3 gap-y-3">
+                {episode.length > 0 &&
+                  episode.map((item) => (
+                    <div
+                      data-index={item}
+                      data-linkembed={item.link_embed}
+                      onClick={() => handleEpisodeClick(item.link_embed)}
+                      className="p-2 text-center text-green-500 rounded-lg cursor-pointer bg-green-50 hover:opacity-60"
+                    >
+                      {item.name}
+                    </div>
+                  ))}
+              </div>
+            </div>
+            <Comments></Comments>
+            <YouAlsoLike></YouAlsoLike>
           </div>
         )}
-
-        <div>
-          <span>Tap phim</span>
-        </div>
-        <Comments></Comments>
-        <YouAlsoLike></YouAlsoLike>
       </div>
       <Footer></Footer>
     </>
