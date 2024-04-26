@@ -42,13 +42,44 @@ const Header = () => {
         <div className="flex items-center text-base text-gray-500 gap-x-5">
           <NavLink
             to={"/"}
-            className={({ isActive }) => (isActive ? "text-rose-400" : "")}
+            className={({ isActive }) =>
+              isActive
+                ? "text-rose-500"
+                : "hover:text-rose-500 transition-colors"
+            }
           >
             Home
           </NavLink>
-          <NavLink className="header-link">Movies</NavLink>
-          <NavLink className="header-link">Series</NavLink>
-          <NavLink className="header-link">Animation</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "text-rose-500 hover:text-rose-500"
+                : "hover:text-rose-500 transition-colors"
+            }
+            to={"/signle-movies"}
+          >
+            Movies
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "text-rose-500 hover:text-rose-500"
+                : "hover:text-rose-500 transition-colors"
+            }
+            to={"/seri-movies"}
+          >
+            Series
+          </NavLink>
+          <NavLink
+            to={"/cartoon-movie"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-rose-500 hover:text-rose-500"
+                : "hover:text-rose-500 transition-colors"
+            }
+          >
+            Cartoon
+          </NavLink>
         </div>
         <div className="flex items-center text-base text-gray-500 gap-x-2">
           {/* <NavLink to={"/sign-in"} className="header-link">

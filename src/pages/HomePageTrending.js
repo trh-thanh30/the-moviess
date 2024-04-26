@@ -9,7 +9,7 @@ const HomePageTrending = () => {
         <p className="text-xl font-semibold text-nowrap">SINGLES MOVIES</p>
         <span className="division"></span>
         <NavLink
-          to={"/trending"}
+          to={"/signle-movies"}
           className="text-lg font-semibold text-slate-500 text-nowrap"
         >
           View all

@@ -8,17 +8,19 @@ import TrendingPage from "./pages/TrendingPage";
 import SeriMoviesPage from "./pages/SeriMoviesPage";
 import CartoonPage from "./pages/CartoonPage";
 import HomePageDetails from "./pages/HomePageDetails";
+import TiviSeriesPage from "./pages/TiviSeriesPage";
 const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage></HomePage>}>
-          
-        </Route>
+        <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>
         <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
         <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
-        <Route path="/trending" element={<TrendingPage></TrendingPage>}></Route>
+        <Route
+          path="/signle-movies"
+          element={<TrendingPage></TrendingPage>}
+        ></Route>
         <Route
           path="/seri-movies"
           element={<SeriMoviesPage></SeriMoviesPage>}
@@ -29,7 +31,7 @@ const App = () => {
         ></Route>
         <Route
           path="/tv-series"
-          element={<SeriMoviesPage></SeriMoviesPage>}
+          element={<TiviSeriesPage></TiviSeriesPage>}
         ></Route>
         <Route
           path="/movie/:movieSlug"

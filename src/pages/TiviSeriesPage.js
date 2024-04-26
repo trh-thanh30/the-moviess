@@ -4,13 +4,14 @@ import { fetcher } from "../config";
 import Header from "../components/Header";
 import MovieCard from "./MovieCard";
 import Footer from "../components/Footer";
-const pageCount = 20;
-const CartoonPage = () => {
+
+const pageCount = 3;
+const TiviSeriesPage = () => {
   const [movies, setMovies] = useState([]);
   const [page, setNextPgae] = useState(1);
   console.log(page);
   const { data, error } = useSWR(
-    `https://phimapi.com/v1/api/danh-sach/hoat-hinh?page=${page}&limit=20`,
+    `https://phimapi.com/v1/api/danh-sach/tv-shows?page=${page}&limit=20`,
     fetcher
   );
   const loading = !data && !error;
@@ -22,7 +23,7 @@ const CartoonPage = () => {
   }, [data]);
   console.log(movies);
   useEffect(() => {
-    document.title = "The Movies || Cartoon Moveis";
+    document.title = "The Movies || TV-Seri Moveis";
   }, []);
   return (
     <div>
@@ -31,7 +32,7 @@ const CartoonPage = () => {
         <div className="mt-16">
           <div className="flex items-center justify-between">
             <h1 className="text-lg font-semibold">
-              YOU ARE ON PAGE CARTOON MOVIES FILM
+              YOU ARE ON PAGE TV-SERIS MOVIES FILM
             </h1>
             <p className="text-lg font-semibold">
               PAGE{" "}
@@ -96,4 +97,4 @@ const CartoonPage = () => {
   );
 };
 
-export default CartoonPage;
+export default TiviSeriesPage;
