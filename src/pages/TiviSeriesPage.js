@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import MovieCard from "./MovieCard";
 import Footer from "../components/Footer";
 import ReactPaginate from "react-paginate";
+import { Pagination } from "@mui/material";
 
 const itemsPerPage = 20;
 const TiviSeriesPage = () => {
@@ -39,13 +40,9 @@ const TiviSeriesPage = () => {
     console.log(pageCounts);
   }, [data, itemOffset, pageCounts]);
 
-  const handlePageClick = (event) => {
-    const newOffset =
-      (event.selected * itemsPerPage) % data.data.params.pagination.totalPages;
-    setItemOffset(newOffset);
-    setNextPgae(event.selected + 1);
+  const handleChange = (event, value) => {
+    setNextPgae(value);
   };
-
   useEffect(() => {
     document.title = "The Movies || TV-Seri Moveis";
   }, []);
@@ -73,16 +70,12 @@ const TiviSeriesPage = () => {
                 ))}
             </div>
           )}
-          <div className="mt-10">
-            <ReactPaginate
-              breakLabel="..."
-              nextLabel="next >"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={5}
-              pageCount={pageCounts}
-              previousLabel="< previous"
-              renderOnZeroPageCount={null}
-              className="pagination"
+          <div className="flex items-center justify-center mt-20">
+            <Pagination
+              count={pageCounts}
+              size="large"
+              onChange={handleChange}
+              color="primary"
             />
           </div>
         </div>

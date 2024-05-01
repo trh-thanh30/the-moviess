@@ -11,7 +11,7 @@ import { fetcher } from "../config";
 const Slider = () => {
   const [movies, setMovies] = useState([]);
   const { data, error } = useSWR(
-    `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=1`,
+    `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=2`,
     fetcher
   );
   console.log("Ban", data);

@@ -4,12 +4,9 @@ import { fetcher } from "../config";
 import Header from "../components/Header";
 import MovieCard from "./MovieCard";
 import Footer from "../components/Footer";
-import ReactPaginate from "react-paginate";
-const itemsPerPage = 20;
+import Pagination from "@mui/material/Pagination";
 const CartoonPage = () => {
-  const [itemOffset, setItemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
-
   const [movies, setMovies] = useState([]);
   const [page, setNextPgae] = useState(1);
   console.log(page);
@@ -21,7 +18,6 @@ const CartoonPage = () => {
 
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
-
     window.scrollTo(0, 0);
   }, [data]);
   useEffect(() => {
@@ -34,14 +30,12 @@ const CartoonPage = () => {
     )
       setPageCounts(data.data.params.pagination.totalPages);
     console.log(pageCounts);
-  }, [data, itemOffset, pageCounts]);
+  }, [data, pageCounts]);
 
-  const handlePageClick = (event) => {
-    const newOffset =
-      (event.selected * itemsPerPage) % data.data.params.pagination.totalPages;
-    setItemOffset(newOffset);
-    setNextPgae(event.selected + 1);
+  const handleChange = (event, value) => {
+    setNextPgae(value);
   };
+
   useEffect(() => {
     document.title = "The Movies || Cartoon Moveis";
   }, []);
@@ -51,9 +45,7 @@ const CartoonPage = () => {
       <div className="container">
         <div className="mt-16">
           <div className="flex items-center justify-between">
-            <h1 className="text-lg font-semibold">
-              YOU ARE ON PAGE CARTOON MOVIES FILM
-            </h1>
+            <h1 className="text-lg font-semibold">LIST OF ANIMATED MOVIES</h1>
             <p className="text-lg font-semibold">
               PAGE{" "}
               <span className="text-lg font-semibold name__user">{page}</span>{" "}
@@ -68,16 +60,13 @@ const CartoonPage = () => {
                 ))}
             </div>
           )}
-          <div className="mt-10">
-            <ReactPaginate
-              breakLabel="..."
-              nextLabel="next >"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={5}
-              pageCount={pageCounts}
-              previousLabel="< previous"
-              renderOnZeroPageCount={null}
-              className="pagination"
+
+          <div className="flex items-center justify-center mt-20">
+            <Pagination
+              count={pageCounts}
+              size="large"
+              onChange={handleChange}
+              color="primary"
             />
           </div>
         </div>

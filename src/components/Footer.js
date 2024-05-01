@@ -99,7 +99,7 @@ const Footer = () => {
             <ul className="footer__list">
               <li>
                 <p className="footer__label">Email</p>
-                <a href="contact@grocerymart.com" className="footer__link">
+                <a href="gmail:contact@grocerymart.com" className="footer__link">
                   contact@themovies.com
                 </a>
               </li>

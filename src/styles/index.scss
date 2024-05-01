@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import "signIn";
 @import "notfound";
 @import "header";
@@ -16,6 +17,7 @@
 
 /* HTML: <div class="loader"></div> */
 .loading {
+  margin-top: 20px;
   width: 50px;
   padding: 8px;
   aspect-ratio: 1;
@@ -27,7 +29,7 @@
   -webkit-mask-composite: source-out;
   mask-composite: subtract;
   animation: l3 1s infinite linear;
-  margin: 0 auto;
+  margin: 40px auto 0 auto;
 }
 @keyframes l3 {
   to {
@@ -40,6 +42,7 @@
   justify-content: center;
   gap: 20px;
   .selected {
-    @apply text-green-500;
+    @apply bg-green-50 text-green-500 px-3 py-1 rounded-lg;
   }
 }
+

@@ -34,7 +34,7 @@ const Header = () => {
         <div className="relative text-base">
           <input
             type="text"
-            className="p-4 text-base text-black border border-gray-400 outline-none rounded-xl w-[410px] shadow-lg"
+            className="p-4 text-base text-black border border-gray-400 outline-none rounded-xl w-[380px] shadow-lg"
             placeholder="Search movies......."
           />
           <IconSearch className="pl-4 input-icon"></IconSearch>
@@ -44,8 +44,8 @@ const Header = () => {
             to={"/"}
             className={({ isActive }) =>
               isActive
-                ? "text-rose-500"
-                : "hover:text-rose-500 transition-colors"
+                ? "text-rose-500 hover:text-rose-500 text-base"
+                : "hover:text-rose-500 transition-colors text-base"
             }
           >
             Home
@@ -53,42 +53,46 @@ const Header = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-rose-500 hover:text-rose-500"
-                : "hover:text-rose-500 transition-colors"
+                ? "text-rose-500 hover:text-rose-500 text-base"
+                : "hover:text-rose-500 transition-colors text-base"
             }
             to={"/signle-movies"}
           >
-            Movies
+            Movies 
           </NavLink>
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-rose-500 hover:text-rose-500"
-                : "hover:text-rose-500 transition-colors"
+                ? "text-rose-500 hover:text-rose-500 text-base"
+                : "hover:text-rose-500 transition-colors text-base"
             }
             to={"/seri-movies"}
           >
-            Series
+            Series                                                                                                                   
           </NavLink>
           <NavLink
             to={"/cartoon-movie"}
             className={({ isActive }) =>
               isActive
-                ? "text-rose-500 hover:text-rose-500"
-                : "hover:text-rose-500 transition-colors"
+                ? "text-rose-500 hover:text-rose-500 text-base"
+                : "hover:text-rose-500 transition-colors text-base"
             }
           >
             Cartoon
           </NavLink>
+
+          <NavLink
+            to={"/tv-series"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-rose-500 hover:text-rose-500 text-base"
+                : "hover:text-rose-500 transition-colors text-base"
+            }
+          >
+           TV-Series
+          </NavLink>
         </div>
         <div className="flex items-center text-base text-gray-500 gap-x-2">
-          {/* <NavLink to={"/sign-in"} className="header-link">
-            Sign In
-          </NavLink>
-          <span>/</span>
-          <NavLink to={"/sign-up"} className="header-link">
-            Sign Up
-          </NavLink> */}
           {user ? (
             <>
               <div className="flex items-center gap-x-2">

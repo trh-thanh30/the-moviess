@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { fetcher } from "../config";
 import MovieCard from "./MovieCard";
 import Footer from "../components/Footer";
-import ReactPaginate from "react-paginate";
+import Pagination from "@mui/material/Pagination";
 
 const itemsPerPage = 20;
 const TrendingPage = () => {
@@ -22,7 +22,6 @@ const TrendingPage = () => {
 
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
-
     window.scrollTo(0, 0);
   }, [data]);
 
@@ -38,11 +37,8 @@ const TrendingPage = () => {
     console.log(pageCounts);
   }, [data, itemOffset, pageCounts]);
 
-  const handlePageClick = (event) => {
-    const newOffset =
-      (event.selected * itemsPerPage) % data.data.params.pagination.totalPages;
-    setItemOffset(newOffset);
-    setNextPgae(event.selected + 1);
+  const handleChange = (event, value) => {
+    setNextPgae(value);
   };
 
   useEffect(() => {
@@ -71,19 +67,14 @@ const TrendingPage = () => {
                 ))}
             </div>
           )}
-          <div className="mt-10">
-            <ReactPaginate
-              breakLabel="..."
-              nextLabel="next >"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={5}
-              pageCount={pageCounts}
-              previousLabel="< previous"
-              renderOnZeroPageCount={null}
-              className="pagination"
+          <div className="flex items-center justify-center mt-20">
+            <Pagination
+              count={pageCounts}
+              size="large"
+              onChange={handleChange}
+              color="primary"
             />
           </div>
-   
         </div>
       </div>
       <Footer></Footer>

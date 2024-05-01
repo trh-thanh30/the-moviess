@@ -19,7 +19,7 @@ const MovieCard = React.memo(({ item }) => {
           <NavLink to={`/movie/${slug}`} className="image__hover">
             <img
               src={`https://img.phimapi.com/${poster_url}`}
-              alt=""
+              alt={origin_name}
               className="w-[256px] h-[344px] object-cover rounded-lg image__father"
             />
             <img src={play} alt="" className="image__play" />
