@@ -4,9 +4,13 @@ import { fetcher } from "../config";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MovieCard from "./MovieCard";
+import ReactPaginate from "react-paginate";
 
-const pageCount = 20;
+const itemsPerPage = 20;
 const SeriMoviesPage = () => {
+  const [itemOffset, setItemOffset] = useState(0);
+  const [pageCounts, setPageCounts] = useState("");
+
   const [movies, setMovies] = useState([]);
   const [page, setNextPgae] = useState(1);
   console.log(page);
@@ -21,7 +25,25 @@ const SeriMoviesPage = () => {
 
     window.scrollTo(0, 0);
   }, [data]);
-  console.log(movies);
+  useEffect(() => {
+    if (
+      data &&
+      data.data &&
+      data.data.params &&
+      data.data.params.pagination &&
+      data.data.params.pagination.totalPages
+    )
+      setPageCounts(data.data.params.pagination.totalPages);
+    console.log(pageCounts);
+  }, [data, itemOffset, pageCounts]);
+
+  const handlePageClick = (event) => {
+    const newOffset =
+      (event.selected * itemsPerPage) % data.data.params.pagination.totalPages;
+    setItemOffset(newOffset);
+    setNextPgae(event.selected + 1);
+  };
+
   useEffect(() => {
     document.title = "The Movies || Seri Moveis";
   }, []);
@@ -48,47 +70,17 @@ const SeriMoviesPage = () => {
                 ))}
             </div>
           )}
-          <div className="flex items-center justify-center mt-12 gap-x-2">
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5 8.25 12l7.5-7.5"
-                />
-              </svg>
-            </span>
-            {new Array(pageCount).fill(0).map((item, index) => (
-              <span
-                onClick={() => setNextPgae(index + 1)}
-                className="px-3 py-1 text-green-500 rounded-lg cursor-pointer bg-green-50 hover:opacity-75"
-              >
-                {index + 1}
-              </span>
-            ))}
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokelinejoin="round"
-                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </span>
+          <div className="mt-10">
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel="next >"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={5}
+              pageCount={pageCounts}
+              previousLabel="< previous"
+              renderOnZeroPageCount={null}
+              className="pagination"
+            />
           </div>
         </div>
       </div>
