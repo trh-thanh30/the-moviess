@@ -9,6 +9,9 @@ import SeriMoviesPage from "./pages/SeriMoviesPage";
 import CartoonPage from "./pages/CartoonPage";
 import HomePageDetails from "./pages/HomePageDetails";
 import TiviSeriesPage from "./pages/TiviSeriesPage";
+import SearchPage from "./pages/SearchPage";
+import Header from "./components/Header";
+import { query } from "firebase/firestore";
 const App = () => {
   return (
     <>
@@ -36,6 +39,11 @@ const App = () => {
         <Route
           path="/movie/:movieSlug"
           element={<HomePageDetails></HomePageDetails>}
+        ></Route>
+
+        <Route
+          path="/search/:movieQuery"
+          element={<SearchPage></SearchPage>}
         ></Route>
       </Routes>
     </>

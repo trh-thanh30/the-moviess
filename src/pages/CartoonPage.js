@@ -9,7 +9,7 @@ const CartoonPage = () => {
   const [pageCounts, setPageCounts] = useState("");
   const [movies, setMovies] = useState([]);
   const [page, setNextPgae] = useState(1);
-  console.log(page);
+
   const { data, error } = useSWR(
     `https://phimapi.com/v1/api/danh-sach/hoat-hinh?page=${page}&limit=20`,
     fetcher
@@ -29,7 +29,7 @@ const CartoonPage = () => {
       data.data.params.pagination.totalPages
     )
       setPageCounts(data.data.params.pagination.totalPages);
-    console.log(pageCounts);
+
   }, [data, pageCounts]);
 
   const handleChange = (event, value) => {

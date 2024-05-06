@@ -7,19 +7,19 @@ import Footer from "../components/Footer";
 import ReactPaginate from "react-paginate";
 import { Pagination } from "@mui/material";
 
-const itemsPerPage = 20;
+
 const TiviSeriesPage = () => {
   const [itemOffset, setItemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
 
   const [movies, setMovies] = useState([]);
   const [page, setNextPgae] = useState(1);
-  console.log(page);
+
   const { data, error } = useSWR(
     `https://phimapi.com/v1/api/danh-sach/tv-shows?page=${page}&limit=20`,
     fetcher
   );
-  console.log("Data", data);
+
   const loading = !data && !error;
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const TiviSeriesPage = () => {
       data.data.params.pagination.totalPages
     )
       setPageCounts(data.data.params.pagination.totalPages);
-    console.log(pageCounts);
+    
   }, [data, itemOffset, pageCounts]);
 
   const handleChange = (event, value) => {

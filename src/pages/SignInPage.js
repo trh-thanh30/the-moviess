@@ -42,11 +42,10 @@ const SignInPage = () => {
           values.email,
           values.password
         );
-        console.log(userCredential);
+
         setLoading(false);
         navigate("/");
         toast.success(`Logged in successfully !!! Hello ${values.email} 😽👋`);
-        console.log(values);
       } catch (error) {
         if (error.code === "auth/invalid-credential") {
           toast.error("The email or password you entered is incorrect.");

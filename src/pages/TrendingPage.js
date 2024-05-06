@@ -5,15 +5,13 @@ import { fetcher } from "../config";
 import MovieCard from "./MovieCard";
 import Footer from "../components/Footer";
 import Pagination from "@mui/material/Pagination";
-
-const itemsPerPage = 20;
 const TrendingPage = () => {
   const [itemOffset, setItemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
 
   const [movies, setMovies] = useState([]);
   const [page, setNextPgae] = useState(1);
-  console.log(page);
+
   const { data, error } = useSWR(
     `https://phimapi.com/v1/api/danh-sach/phim-le?page=${page}&limit=20`,
     fetcher
@@ -34,7 +32,6 @@ const TrendingPage = () => {
       data.data.params.pagination.totalPages
     )
       setPageCounts(data.data.params.pagination.totalPages);
-    console.log(pageCounts);
   }, [data, itemOffset, pageCounts]);
 
   const handleChange = (event, value) => {

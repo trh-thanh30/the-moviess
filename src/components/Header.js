@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "../assets/image/the-moviess.svg";
 import logoMovies from "../assets/image/logo-image.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import IconSearch from "../icon/IconSearch";
+import useSWR from "swr";
+import { fetcher } from "../config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 const Header = () => {
-  //input-icon
+  const [query, setQuery] = useState("");
+  const [url, setUrl] = useState(
+    `https://phimapi.com/v1/api/tim-kiem?keyword=${query}`
+  );
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const { data, error } = useSWR(url, fetcher);
   useEffect(() => {
     const auth = getAuth();
     const unsubscrie = onAuthStateChanged(auth, (currentUser) => {
@@ -27,18 +33,27 @@ const Header = () => {
   return (
     <div className="container">
       <div className="flex items-center justify-between mt-10">
-        <NavLink to={"/"} className="flex items-center gap-x-3">
+        <NavLink to={"/"} className="flex items-center w-13 gap-x-3">
           <img src={logoMovies} alt="" />
           <img src={logo} alt="" />
         </NavLink>
-        <div className="relative text-base">
+        {/* <div className="relative text-base">
           <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             type="text"
             className="p-4 text-base text-black border border-gray-400 outline-none rounded-xl w-[380px] shadow-lg"
             placeholder="Search movies......."
           />
-          <IconSearch className="pl-4 input-icon"></IconSearch>
-        </div>
+          <NavLink to={`/search/${query}`}>
+            <IconSearch
+              onClick={() =>
+                setUrl(`https://phimapi.com/v1/api/tim-kiem?keyword=${query}`)
+              }
+              className="pl-4 input-icon"
+            ></IconSearch>
+          </NavLink>
+        </div> */}
         <div className="flex items-center text-base text-gray-500 gap-x-5">
           <NavLink
             to={"/"}
@@ -58,7 +73,7 @@ const Header = () => {
             }
             to={"/signle-movies"}
           >
-            Movies 
+            Movies
           </NavLink>
           <NavLink
             className={({ isActive }) =>
@@ -68,7 +83,7 @@ const Header = () => {
             }
             to={"/seri-movies"}
           >
-            Series                                                                                                                   
+            Series
           </NavLink>
           <NavLink
             to={"/cartoon-movie"}
@@ -89,7 +104,7 @@ const Header = () => {
                 : "hover:text-rose-500 transition-colors text-base"
             }
           >
-           TV-Series
+            TV-Series
           </NavLink>
         </div>
         <div className="flex items-center text-base text-gray-500 gap-x-2">

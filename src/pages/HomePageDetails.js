@@ -21,7 +21,7 @@ const HomePageDetails = () => {
     `https://phimapi.com/phim/${movieSlug}`,
     fetcher
   );
-  console.log("DATA", data);
+
   const [movies, setMovies] = useState([]);
   const [country, setCountry] = useState([]);
   const [category, setCategory] = useState([]);
@@ -32,13 +32,13 @@ const HomePageDetails = () => {
   useEffect(() => {
     if (data && data.movie) return setMovies(data.movie);
   }, [data]);
-  console.log("MOIVE", movies);
+
 
   useEffect(() => {
     if (data && data.movie && data.movie.category)
       setCategory(data.movie.category);
   }, [data]);
-  console.log("CTA", category);
+
 
   useEffect(() => {
     if (
@@ -50,7 +50,7 @@ const HomePageDetails = () => {
     )
       setCountry(data.movie.country[0].name);
   }, [data]);
-  console.log("CTR", country);
+
 
   useEffect(() => {
     if (
@@ -63,7 +63,7 @@ const HomePageDetails = () => {
     )
       setSever(data.episodes[0].server_data[0].link_embed);
   }, [data]);
-  console.log("SVE", sever);
+
 
   useEffect(() => {
     if (
@@ -74,7 +74,7 @@ const HomePageDetails = () => {
     )
       setEpisode(data.episodes[0].server_data);
   }, [data]);
-  console.log("EPS", episode);
+
 
   const handleEpisodeClick = (linkEmbed) => {
     setSever(linkEmbed);
