@@ -10,15 +10,17 @@ import { fetcher } from "../config";
 
 const Slider = () => {
   const [movies, setMovies] = useState([]);
+ 
   const { data, error } = useSWR(
-    `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=3`,
+    `https://phimapi.com/v1/api/the-loai/hanh-dong`,
     fetcher
   );
   console.log(data);
   const loading = !data && !error;
   useEffect(() => {
-    if (data && data.items) setMovies(data.items);
+    if (data && data.data && data.data.items) setMovies(data.data.items);
   }, [data]);
+  console.log(data);
   return (
     <Fragment>
       {loading && <div className="loading"></div>}
@@ -30,7 +32,6 @@ const Slider = () => {
             delay: 3500,
             disableOnInteraction: false,
           }}
-       
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           grabCursor={"true"}

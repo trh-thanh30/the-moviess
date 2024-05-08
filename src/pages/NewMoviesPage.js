@@ -42,9 +42,7 @@ const NewMoviesPage = () => {
       <div className="container">
         <div className="mt-16">
           <div className="flex items-center justify-between">
-            <h1 className="text-lg font-semibold">
-              YOU ARE ON PAGE SERIS MOVIES FILM
-            </h1>
+            <h1 className="text-lg font-semibold">LIST OF NEW MOVIES</h1>
             <p className="text-lg font-semibold">
               PAGE{" "}
               <span className="text-lg font-semibold name__user">{page}</span>{" "}
@@ -52,14 +50,14 @@ const NewMoviesPage = () => {
           </div>
           {loading && <div className="loading"></div>}
           {!loading && (
-            <div className="grid grid-cols-4 gap-10">
+            <div className="grid grid-cols-4 gap-x-10 gap-y-6">
               {movies.length > 0 &&
                 movies.map((item) => (
                   <NewsMovieCard key={item._id} item={item}></NewsMovieCard>
                 ))}
             </div>
           )}
-          <div className="flex items-center justify-center mt-20">
+          <div className="flex items-center justify-center mt-12">
             <Pagination
               count={pageCounts}
               size="large"

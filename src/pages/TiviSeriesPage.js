@@ -7,7 +7,6 @@ import Footer from "../components/Footer";
 import ReactPaginate from "react-paginate";
 import { Pagination } from "@mui/material";
 
-
 const TiviSeriesPage = () => {
   const [itemOffset, setItemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
@@ -37,14 +36,13 @@ const TiviSeriesPage = () => {
       data.data.params.pagination.totalPages
     )
       setPageCounts(data.data.params.pagination.totalPages);
-    
   }, [data, itemOffset, pageCounts]);
 
   const handleChange = (event, value) => {
     setNextPgae(value);
   };
   useEffect(() => {
-    document.title = "The Movies || TV-Seri Moveis";
+    document.title = "The Movies || TV-Seri";
   }, []);
 
   return (
@@ -53,9 +51,7 @@ const TiviSeriesPage = () => {
       <div className="container">
         <div className="mt-16">
           <div className="flex items-center justify-between">
-            <h1 className="text-lg font-semibold">
-              YOU ARE ON PAGE TV-SERIS MOVIES FILM
-            </h1>
+            <h1 className="text-lg font-semibold">LIST OF TV SHOWS</h1>
             <p className="text-lg font-semibold">
               PAGE{" "}
               <span className="text-lg font-semibold name__user">{page}</span>{" "}
@@ -63,14 +59,14 @@ const TiviSeriesPage = () => {
           </div>
           {loading && <div className="loading"></div>}
           {!loading && (
-            <div className="grid grid-cols-4 gap-10">
+            <div className="grid grid-cols-4 gap-x-10 gap-y-6">
               {movies.length > 0 &&
                 movies.map((item) => (
                   <MovieCard key={item._id} item={item}></MovieCard>
                 ))}
             </div>
           )}
-          <div className="flex items-center justify-center mt-20">
+          <div className="flex items-center justify-center mt-12">
             <Pagination
               count={pageCounts}
               size="large"

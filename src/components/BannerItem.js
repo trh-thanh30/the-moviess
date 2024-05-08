@@ -1,9 +1,19 @@
 import React from "react";
-import Time from "../assets/image/timeIcon.svg";
 import watchLogo from "../assets/image/watch.svg";
 import { NavLink } from "react-router-dom";
 const BannerItem = React.memo(({ item }) => {
-  const { origin_name, year, poster_url, slug, name } = item;
+  const {
+    origin_name,
+    year,
+    poster_url,
+    slug,
+    name,
+    lang,
+    episode_current,
+    quality,
+    category,
+  } = item;
+
   return (
     <section className="mt-12">
       <div className="container">
@@ -12,18 +22,18 @@ const BannerItem = React.memo(({ item }) => {
             <h1 className="text-3xl font-extrabold text-[#1A162E] uppercase tracking-wide">
               {origin_name}
             </h1>
-            <h2 className="text-[#c40f62] mt-2">{name}</h2>
+            <h2 className="text-[#c40f62] mt-1">{name}</h2>
             <div className="flex items-center mt-7 gap-x-8">
               <div className="flex items-center gap-x-2">
                 <span className="px-3 py-1 text-white bg-black rounded-sm">
-                  Full
+                  {episode_current}
                 </span>
-                <span>HD</span>
+                <span>{quality}</span>
               </div>
 
               <div className="flex items-center gap-x-2">
-                <span>Actions, </span>
-                <span>Humorous</span>
+                {category.length > 0 &&
+                  category.map((item) => <span>{item.name + "  "} </span>)}
               </div>
 
               <div className="flex items-center gap-x-2">
@@ -66,7 +76,7 @@ const BannerItem = React.memo(({ item }) => {
                     ></path>
                   </svg>
                 </span>
-                <span>VietSub</span>
+                <span>{lang}</span>
               </div>
             </div>
             <NavLink
@@ -83,7 +93,7 @@ const BannerItem = React.memo(({ item }) => {
           <div className="image-item">
             <img
               className="w-[320px] h-[480px] object-cover"
-              src={poster_url}
+              src={`https://img.phimapi.com/${poster_url}`}
               alt=""
             />
           </div>

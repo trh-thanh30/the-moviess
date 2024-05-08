@@ -5,18 +5,18 @@ import MovieList from "../movie/MovieList";
 const HomePageCartoon = () => {
   return (
     <div className="container">
-      <div className="mt-[72px] flex items-center gap-x-1">
+      <div className="mt-[54px] flex items-center gap-x-1">
         <img src={treding} alt="" />
         <p className="text-xl font-semibold text-nowrap">CARTOONS MOVIES</p>
         <span className="division"></span>
         <NavLink
           to={"/cartoon-movie"}
-          className="text-lg font-semibold text-slate-500 text-nowrap"
+          className="text-lg font-semibold text-slate-500 text-nowrap hover:text-[#c40f62] transition-colors"
         >
           View all
         </NavLink>
       </div>
-      <MovieList callAPI={'hoat-hinh'}></MovieList>
+      <MovieList callAPI={"hoat-hinh"}></MovieList>
     </div>
   );
 };

@@ -19,7 +19,7 @@ const Footer = () => {
   }
 
   return (
-    <div className="mt-20 footer">
+    <div className="mt-16 footer">
       <div className="container">
         <div className="footer__row">
           <div className="footer__col">

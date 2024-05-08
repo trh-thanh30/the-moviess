@@ -39,7 +39,7 @@ const TrendingPage = () => {
   };
 
   useEffect(() => {
-    document.title = "The Movies || Trending";
+    document.title = "The Movies || Odd Movies";
   }, []);
   return (
     <div>
@@ -47,9 +47,7 @@ const TrendingPage = () => {
       <div className="container">
         <div className="mt-16">
           <div className="flex items-center justify-between">
-            <h1 className="text-lg font-semibold">
-              YOU ARE ON PAGE MOIVES FILM
-            </h1>
+            <h1 className="text-lg font-semibold">LIST OF ODD MOVIES</h1>
             <p className="text-lg font-semibold">
               PAGE{" "}
               <span className="text-lg font-semibold name__user">{page}</span>{" "}
@@ -57,14 +55,14 @@ const TrendingPage = () => {
           </div>
           {loading && <div className="loading"></div>}
           {!loading && (
-            <div className="grid grid-cols-4 gap-10">
+            <div className="grid grid-cols-4 gap-x-10 gap-y-6">
               {movies.length > 0 &&
                 movies.map((item) => (
                   <MovieCard key={item._id} item={item}></MovieCard>
                 ))}
             </div>
           )}
-          <div className="flex items-center justify-center mt-20">
+          <div className="flex items-center justify-center mt-12">
             <Pagination
               count={pageCounts}
               size="large"

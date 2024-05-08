@@ -16,12 +16,13 @@ const MovieList = ({ callAPI }) => {
     `https://phimapi.com/v1/api/danh-sach/${callAPI}`,
     fetcher
   );
-
+  
   const loading = !data && !error;
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
     window.scrollTo(0, 0);
   }, [data]);
+  console.log("hi",movies);
 
   return (
     <Fragment>
@@ -37,7 +38,7 @@ const MovieList = ({ callAPI }) => {
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           grabCursor={"true"}
-          spaceBetween={20}
+          spaceBetween={36}
           slidesPerView={"auto"}
         >
           {!loading &&

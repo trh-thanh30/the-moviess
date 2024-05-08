@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/image/the-moviess.svg";
 import logoMovies from "../assets/image/logo-image.svg";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -266,9 +266,7 @@ const Header = () => {
                       type="text"
                       required
                     />
-                    <p className="input-data__name">
-                      Search your movie...
-                    </p>
+                    <p className="input-data__name">Search your movie...</p>
                     <span className="input-data__span" />
                   </div>
                 </div>

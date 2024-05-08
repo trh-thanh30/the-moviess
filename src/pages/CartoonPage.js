@@ -53,7 +53,7 @@ const CartoonPage = () => {
           </div>
           {loading && <div className="loading"></div>}
           {!loading && (
-            <div className="grid grid-cols-4 gap-10">
+            <div className="grid grid-cols-4 gap-x-10 gap-y-6">
               {movies.length > 0 &&
                 movies.map((item) => (
                   <MovieCard key={item._id} item={item}></MovieCard>
@@ -61,7 +61,7 @@ const CartoonPage = () => {
             </div>
           )}
 
-          <div className="flex items-center justify-center mt-20">
+          <div className="flex items-center justify-center mt-12">
             <Pagination
               count={pageCounts}
               size="large"
