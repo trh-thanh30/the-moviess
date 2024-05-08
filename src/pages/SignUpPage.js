@@ -29,7 +29,7 @@ const SignUpPage = () => {
     validationSchema: Yup.object({
       fullName: Yup.string()
         .required("Please enter your name")
-        .max(20, "Your name must be 20 characters or less"),
+        .max(12, "Your name must be 12 characters or less"),
       email: Yup.string()
         .email("Please enter the correct email format : 'example@gmail.com' ")
         .required("Please enter your email address"),
@@ -51,7 +51,6 @@ const SignUpPage = () => {
           displayName: values.fullName,
         });
 
-
         const useRef = collection(db, "users");
         await addDoc(useRef, {
           fullName: values.fullName,
@@ -62,7 +61,6 @@ const SignUpPage = () => {
         setLoading(false);
         navigate("/");
         toast.success(`Sign up successfully !!! Hello ${values.fullName} 😽👋`);
-
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {
           toast.error(

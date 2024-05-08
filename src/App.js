@@ -12,6 +12,7 @@ import TiviSeriesPage from "./pages/TiviSeriesPage";
 import SearchPage from "./pages/SearchPage";
 import Header from "./components/Header";
 import { query } from "firebase/firestore";
+import NewMoviesPage from "./pages/NewMoviesPage";
 const App = () => {
   return (
     <>
@@ -25,12 +26,20 @@ const App = () => {
           element={<TrendingPage></TrendingPage>}
         ></Route>
         <Route
+          path="/movies-vietsub"
+          element={<TrendingPage></TrendingPage>}
+        ></Route>
+        <Route
           path="/seri-movies"
           element={<SeriMoviesPage></SeriMoviesPage>}
         ></Route>
         <Route
           path="/cartoon-movie"
           element={<CartoonPage></CartoonPage>}
+        ></Route>
+        <Route
+          path="/new-movies"
+          element={<NewMoviesPage></NewMoviesPage>}
         ></Route>
         <Route
           path="/tv-series"

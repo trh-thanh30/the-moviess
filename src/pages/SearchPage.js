@@ -30,14 +30,18 @@ const SearchPage = () => {
       <Header />
       <div className="container">
         {loading && <div className="loading"></div>}
-        <h1 className="mt-16 text-lg font-semibold">
-          {movies.length > 0 ? "SEARCH RESULTS" : "NO RESULTS FOUND"}
-        </h1>
-        <div className="grid grid-cols-4 gap-10">
-          {movies.map((item) => (
-            <MovieCard key={item._id} item={item}></MovieCard>
-          ))}
-        </div>
+        {!loading && (
+          <div>
+            <h1 className="mt-16 text-lg font-semibold">
+              {movies.length > 0 ? "SEARCH RESULTS" : "NO RESULTS FOUND"}
+            </h1>
+            <div className="grid grid-cols-4 gap-10">
+              {movies.map((item) => (
+                <MovieCard key={item._id} item={item}></MovieCard>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
     </>

@@ -1,0 +1,52 @@
+.wrapper {
+  position: relative;
+}
+
+.input-data {
+  border: 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+}
+
+.input-data:focus {
+  outline: none;
+}
+
+.input-data ~ .input-data__span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.4s;
+}
+
+.input-data:focus ~ .input-data__span {
+  width: 100%;
+  transition: 0.4s;
+}
+
+.input-data ~ .input-data__name {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 9px;
+  transition: 0.3s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
+
+.input-data:focus ~ .input-data__name,
+.input-data:valid ~ .input-data__name {
+  top: -16px;
+  font-size: 12px;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.input-data:not(:focus) ~ .input-data__name {
+  color: #fff;
+}

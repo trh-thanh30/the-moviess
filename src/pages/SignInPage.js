@@ -71,7 +71,7 @@ const SignInPage = () => {
   return (
     <div className="input-page">
       <div className="container">
-        <div className="flex items-center justify-center my-10 gap-x-4">
+        <div className="flex items-center justify-center my-12 gap-x-4">
           <span>
             <img src={logoMovies} alt="the-movies" />
           </span>

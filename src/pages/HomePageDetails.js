@@ -33,12 +33,10 @@ const HomePageDetails = () => {
     if (data && data.movie) return setMovies(data.movie);
   }, [data]);
 
-
   useEffect(() => {
     if (data && data.movie && data.movie.category)
       setCategory(data.movie.category);
   }, [data]);
-
 
   useEffect(() => {
     if (
@@ -50,7 +48,6 @@ const HomePageDetails = () => {
     )
       setCountry(data.movie.country[0].name);
   }, [data]);
-
 
   useEffect(() => {
     if (
@@ -64,7 +61,6 @@ const HomePageDetails = () => {
       setSever(data.episodes[0].server_data[0].link_embed);
   }, [data]);
 
-
   useEffect(() => {
     if (
       data &&
@@ -74,7 +70,6 @@ const HomePageDetails = () => {
     )
       setEpisode(data.episodes[0].server_data);
   }, [data]);
-
 
   const handleEpisodeClick = (linkEmbed) => {
     setSever(linkEmbed);
@@ -87,8 +82,8 @@ const HomePageDetails = () => {
   }, []);
   return (
     <>
+      <Header></Header>
       <div className="container">
-        <Header></Header>
         {loading && <div className="loading"></div>}
 
         {!loading && (
