@@ -33,7 +33,14 @@ const BannerItem = React.memo(({ item }) => {
 
               <div className="flex items-center gap-x-2">
                 {category.length > 0 &&
-                  category.map((item) => <span>{item.name + "  "} </span>)}
+                  category.map((item) => (
+                    <NavLink
+                      to={`/the-loai/${item.slug}`}
+                      className={"hover:text-[#c40f62] p-2"}
+                    >
+                      {item.name}
+                    </NavLink>
+                  ))}
               </div>
 
               <div className="flex items-center gap-x-2">

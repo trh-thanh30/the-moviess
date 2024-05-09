@@ -4,11 +4,10 @@ import { fetcher } from "../config";
 import Header from "../components/Header";
 import MovieCard from "./MovieCard";
 import Footer from "../components/Footer";
-import ReactPaginate from "react-paginate";
 import { Pagination } from "@mui/material";
 
 const TiviSeriesPage = () => {
-  const [itemOffset, setItemOffset] = useState(0);
+  const [itemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
 
   const [movies, setMovies] = useState([]);

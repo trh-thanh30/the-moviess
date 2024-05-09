@@ -14,8 +14,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { auth, db } from "../firebase/firebase-config";
-import { addDoc, collection } from "firebase/firestore";
+import { auth } from "../firebase/firebase-config";
 
 const SignInPage = () => {
   const [tooglePassword, setTooglePassword] = useState(false);

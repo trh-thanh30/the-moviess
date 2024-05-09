@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import NewsMovieCard from "../News/NewsMovieCard";
 
 const NewMoviesPage = () => {
-  const [itemOffset, setItemOffset] = useState(0);
+  const [itemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
   const [movies, setMovies] = useState([]);
   const [page, setNextPgae] = useState(1);
@@ -16,7 +16,6 @@ const NewMoviesPage = () => {
     `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=${page}&limit=20`,
     fetcher
   );
-  console.log(data);
   const loading = !data && !error;
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const NewMoviesPage = () => {
 
     window.scrollTo(0, 0);
   }, [data]);
-  console.log(movies);
+
   useEffect(() => {
     if (data && data.pagination && data.pagination.totalPages)
       setPageCounts(data.pagination.totalPages);

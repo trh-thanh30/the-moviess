@@ -13,6 +13,8 @@ import SearchPage from "./pages/SearchPage";
 import Header from "./components/Header";
 import { query } from "firebase/firestore";
 import NewMoviesPage from "./pages/NewMoviesPage";
+import MovieGenre from "./movie/MovieGenre";
+import MovieNations from "./movie/MovieNations";
 const App = () => {
   return (
     <>
@@ -48,6 +50,16 @@ const App = () => {
         <Route
           path="/movie/:movieSlug"
           element={<HomePageDetails></HomePageDetails>}
+        ></Route>
+
+        <Route
+          path="/the-loai/:movieGenre"
+          element={<MovieGenre path="/the-loai/:movieGenre"></MovieGenre>}
+        ></Route>
+
+        <Route
+          path="/quoc-gia/:movieNation"
+          element={<MovieNations path="/the-loai/:movieGenre"></MovieNations>}
         ></Route>
 
         <Route

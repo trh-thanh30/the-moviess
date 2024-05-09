@@ -7,7 +7,7 @@ import MovieCard from "./MovieCard";
 import { Pagination } from "@mui/material";
 
 const SeriMoviesPage = () => {
-  const [itemOffset, setItemOffset] = useState(0);
+  const [itemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
 
   const [movies, setMovies] = useState([]);
@@ -18,6 +18,7 @@ const SeriMoviesPage = () => {
     fetcher
   );
   const loading = !data && !error;
+  console.log(data);
 
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);

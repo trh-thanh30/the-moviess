@@ -15,12 +15,10 @@ const Slider = () => {
     `https://phimapi.com/v1/api/the-loai/hanh-dong`,
     fetcher
   );
-  console.log(data);
   const loading = !data && !error;
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
   }, [data]);
-  console.log(data);
   return (
     <Fragment>
       {loading && <div className="loading"></div>}

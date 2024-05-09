@@ -6,7 +6,7 @@ import MovieCard from "./MovieCard";
 import Footer from "../components/Footer";
 import Pagination from "@mui/material/Pagination";
 const TrendingPage = () => {
-  const [itemOffset, setItemOffset] = useState(0);
+  const [itemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
 
   const [movies, setMovies] = useState([]);

@@ -34,7 +34,6 @@ const Header = () => {
     const country = await axios.get(`https://phimapi.com/quoc-gia`);
     if (country && country.data) setCountries(country.data);
   };
-  console.log(countries);
   useEffect(() => {
     handleFetchContry();
   }, []);
@@ -115,24 +114,43 @@ const Header = () => {
             <div className="mt-4">
               <ul className="grid grid-cols-2 font-normal dropdown-menu text-nowrap w-[320px] text-[#1A162E] text-sm">
                 <NavLink
-                  className={"hover:text-[#c40f62]"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#c40f62]  hover:text-[#c40f62]"
+                      : "hover:text-[#c40f62] transition-colors "
+                  }
                   to={"/signle-movies"}
                 >
                   Phim Lẻ
                 </NavLink>
                 <NavLink
-                  className={" hover:text-[#c40f62]"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#c40f62]  hover:text-[#c40f62]"
+                      : "hover:text-[#c40f62] transition-colors "
+                  }
                   to={"/seri-movies"}
                 >
                   Phim Bộ
                 </NavLink>
                 <NavLink
-                  className={" hover:text-[#c40f62]"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#c40f62]  hover:text-[#c40f62]"
+                      : "hover:text-[#c40f62] transition-colors "
+                  }
                   to={"/cartoon-movie"}
                 >
                   Phim Hoạt Hình
                 </NavLink>
-                <NavLink className={"hover:text-[#c40f62]"} to={"/new-movies"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#c40f62]  hover:text-[#c40f62]"
+                      : "hover:text-[#c40f62] transition-colors "
+                  }
+                  to={"/new-movies"}
+                >
                   Phim Mới
                 </NavLink>
 
@@ -143,7 +161,11 @@ const Header = () => {
                   Phim VietSub
                 </NavLink>
                 <NavLink
-                  className={"hover:text-[#c40f62]"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#c40f62]  hover:text-[#c40f62]"
+                      : "hover:text-[#c40f62] transition-colors "
+                  }
                   to={"/movies-vietsub"}
                 >
                   Phim Thuyết Minh
@@ -177,7 +199,14 @@ const Header = () => {
               <ul className="grid grid-cols-4 font-normal dropdown-menu text-nowrap w-[500px] text-[#1A162E] text-sm">
                 {categories.length > 0 &&
                   categories.map((item) => (
-                    <NavLink className={" hover:text-[#c40f62]"}>
+                    <NavLink
+                      to={`/the-loai/${item.slug}`}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-[#c40f62]  hover:text-[#c40f62]"
+                          : "hover:text-[#c40f62] transition-colors "
+                      }
+                    >
                       {item.name}
                     </NavLink>
                   ))}
@@ -210,7 +239,14 @@ const Header = () => {
               <ul className="grid grid-cols-4 font-normal dropdown-menu text-nowrap w-[500px] text-[#1A162E] text-sm">
                 {countries.length > 0 &&
                   countries.map((item) => (
-                    <NavLink className={"  hover:text-[#c40f62]"}>
+                    <NavLink
+                      to={`/quoc-gia/${item.slug}`}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-[#c40f62]  hover:text-[#c40f62]"
+                          : "hover:text-[#c40f62] transition-colors "
+                      }
+                    >
                       {item.name}
                     </NavLink>
                   ))}

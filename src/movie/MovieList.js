@@ -8,7 +8,6 @@ import "swiper/scss";
 import useSWR from "swr";
 import MovieCard from "../pages/MovieCard";
 import { fetcher } from "../config";
-import { Skeleton } from "react-loading-skeleton";
 const MovieList = ({ callAPI }) => {
   const [movies, setMovies] = useState([]);
 
@@ -22,7 +21,6 @@ const MovieList = ({ callAPI }) => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
     window.scrollTo(0, 0);
   }, [data]);
-  console.log("hi",movies);
 
   return (
     <Fragment>
@@ -49,7 +47,9 @@ const MovieList = ({ callAPI }) => {
               </SwiperSlide>
             ))}
         </Swiper>
+        
       </div>
+      
     </Fragment>
   );
 };
