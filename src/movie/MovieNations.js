@@ -16,7 +16,7 @@ const MovieNations = () => {
   const [page, setNextPage] = useState(1);
 
   const { data, error } = useSWR(
-    `https://phimapi.com/v1/api/quoc-gia/${movieNation}?page=1&limit=24`,
+    `https://phimapi.com/v1/api/quoc-gia/${movieNation}?page=${page}&limit=24`,
     fetcher
   );
   const loading = !data && !error;

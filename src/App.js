@@ -27,10 +27,7 @@ const App = () => {
           path="/signle-movies"
           element={<TrendingPage></TrendingPage>}
         ></Route>
-        <Route
-          path="/movies-vietsub"
-          element={<TrendingPage></TrendingPage>}
-        ></Route>
+
         <Route
           path="/seri-movies"
           element={<SeriMoviesPage></SeriMoviesPage>}

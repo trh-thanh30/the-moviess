@@ -5,10 +5,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import IconSearch from "../icon/IconSearch";
 import axios from "axios";
 import logout from "../assets/image/logout.svg";
-
+import Swal from "sweetalert2";
 import useSWR from "swr";
 import { fetcher } from "../config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { toast } from "react-toastify";
+import { Backdrop } from "@mui/material";
 const Header = () => {
   const [query, setQuery] = useState("");
   const [showOverlay, setShowOverlay] = useState(false);
@@ -30,6 +32,7 @@ const Header = () => {
   useEffect(() => {}, []);
   const [user, setUser] = useState(null);
   const { data } = useSWR(`https://phimapi.com/the-loai`, fetcher);
+  console.log(data);
   const handleFetchContry = async () => {
     const country = await axios.get(`https://phimapi.com/quoc-gia`);
     if (country && country.data) setCountries(country.data);
@@ -69,6 +72,7 @@ const Header = () => {
       handleSearch();
     }
   };
+
 
   return (
     <div className="container">
@@ -153,23 +157,6 @@ const Header = () => {
                 >
                   Phim Mới
                 </NavLink>
-
-                <NavLink
-                  className={"hover:text-[#c40f62]"}
-                  to={"/movies-vietsub"}
-                >
-                  Phim VietSub
-                </NavLink>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-[#c40f62]  hover:text-[#c40f62]"
-                      : "hover:text-[#c40f62] transition-colors "
-                  }
-                  to={"/movies-vietsub"}
-                >
-                  Phim Thuyết Minh
-                </NavLink>
               </ul>
             </div>
           </div>
@@ -200,6 +187,28 @@ const Header = () => {
                 {categories.length > 0 &&
                   categories.map((item) => (
                     <NavLink
+                      key={item.id}
+                      onClick={() => {
+                        if (item.slug === "phim-18") {
+                          <div className="overlay"></div> &&
+                            Swal.fire({
+                              title: "Are you sure?",
+                              text: "Content may not be appropriate for your age. If we ignore this warning, we will not be responsible for any actions.",
+                              icon: "error",
+                              showCancelButton: true,
+                              confirmButtonText: "Yes, I'm sure",
+                              cancelButtonText: "Cancel",
+                              backdrop: `rgba(0,0,0,0.9)`,
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                navigate(`/the-loai/${item.slug}`);
+                              } else {
+                                console.log("Back");
+                                navigate(`/`);
+                              }
+                            });
+                        }
+                      }}
                       to={`/the-loai/${item.slug}`}
                       className={({ isActive }) =>
                         isActive
