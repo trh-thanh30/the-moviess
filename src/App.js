@@ -15,6 +15,7 @@ import { query } from "firebase/firestore";
 import NewMoviesPage from "./pages/NewMoviesPage";
 import MovieGenre from "./movie/MovieGenre";
 import MovieNations from "./movie/MovieNations";
+import FavoritePage from "./pages/FavoritePage";
 const App = () => {
   return (
     <>
@@ -44,6 +45,12 @@ const App = () => {
           path="/tv-series"
           element={<TiviSeriesPage></TiviSeriesPage>}
         ></Route>
+
+        <Route
+          path="/favourite"
+          element={<FavoritePage></FavoritePage>}
+        ></Route>
+
         <Route
           path="/movie/:movieSlug"
           element={<HomePageDetails></HomePageDetails>}
@@ -51,12 +58,12 @@ const App = () => {
 
         <Route
           path="/the-loai/:movieGenre"
-          element={<MovieGenre path="/the-loai/:movieGenre"></MovieGenre>}
+          element={<MovieGenre></MovieGenre>}
         ></Route>
 
         <Route
           path="/quoc-gia/:movieNation"
-          element={<MovieNations path="/the-loai/:movieGenre"></MovieNations>}
+          element={<MovieNations></MovieNations>}
         ></Route>
 
         <Route

@@ -9,8 +9,7 @@ import Swal from "sweetalert2";
 import useSWR from "swr";
 import { fetcher } from "../config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { toast } from "react-toastify";
-import { Backdrop } from "@mui/material";
+
 const Header = () => {
   const [query, setQuery] = useState("");
   const [showOverlay, setShowOverlay] = useState(false);
@@ -61,9 +60,9 @@ const Header = () => {
     navigate(`/search/${query}`);
     setShowOverlay(!showOverlay);
     // if (!showOverlay) {
-    //   document.body.style.overflow = "hidden"; // Ngăn cuộn khi overlay hiển thị
+    //   document.body.style.overflow = "hidden";
     // } else {
-    //   document.body.style.overflow = "auto"; // Cho phép cuộn khi overlay ẩn đi
+    //   document.body.style.overflow = "auto";
     // }
   };
 
@@ -72,7 +71,6 @@ const Header = () => {
       handleSearch();
     }
   };
-
 
   return (
     <div className="container">
@@ -341,7 +339,14 @@ const Header = () => {
                           <NavLink className={"  hover:text-[#c40f62]"}>
                             Profile
                           </NavLink>
-                          <NavLink className={"  hover:text-[#c40f62]"}>
+                          <NavLink
+                            to="/favourite"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-[#c40f62]  hover:text-[#c40f62]"
+                                : "hover:text-[#c40f62] transition-colors"
+                            }
+                          >
                             Favourite list
                           </NavLink>
                         </div>

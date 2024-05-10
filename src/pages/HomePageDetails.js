@@ -21,8 +21,10 @@ const HomePageDetails = () => {
     `https://phimapi.com/phim/${movieSlug}`,
     fetcher
   );
+  console.log(data);
 
   const [movies, setMovies] = useState([]);
+  console.log("movie", movies);
   const [country, setCountry] = useState([]);
   const [category, setCategory] = useState([]);
   const [sever, setSever] = useState([]);
@@ -77,9 +79,39 @@ const HomePageDetails = () => {
   };
 
   useEffect(() => {
-    document.title = `The Movies || Movie Details`;
+    document.title = `${movies.origin_name} - ${movies.name}`;
     window.scrollTo(0, 0);
-  }, []);
+  }, [movies]);
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  // Logic kiểm tra xem phim có trong danh sách yêu thích không
+  useEffect(() => {
+    const favoriteMovies =
+      JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+    const found = favoriteMovies.find(
+      (movie) => movies.length > 0 && movie.slug === movies.slug
+    );
+    setIsFavorite(!!found);
+  }, [movies]);
+
+  const handleAddFavorite = () => {
+    const favoriteMovies =
+      JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+    if (!isFavorite) {
+      favoriteMovies.push(movies);
+      localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+      toast.success("Movie saved to favorites list!!!");
+    } else {
+      const updatedList = favoriteMovies.filter(
+        (movie) => movies.length > 0 && movie.slug !== movies.slug
+      );
+      toast.warning("Unsaved movie in favorites list!!!");
+      localStorage.setItem("favoriteMovies", JSON.stringify(updatedList));
+    }
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <>
       <Header></Header>
@@ -101,15 +133,38 @@ const HomePageDetails = () => {
                   <h2 className="text-xl font-semibold">
                     {movies.origin_name}
                   </h2>
-                  <div className="flex items-center p-4 bg-red-500 rounded-lg gap-x-2">
-                    <img src={addFvr} alt="" />
-                    <button
-                      onClick={handleAddMovie}
-                      className="text-base font-normal text-white hover:opacity-8 text-nowrap"
+                  <button
+                    className={`flex items-center rounded-lg ${
+                      isFavorite ? "bg-red-500" : "bg-green-500"
+                    }`}
+                  >
+                    {isFavorite ? (
+                      <span className="block pl-3 text-[#fff]">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="#fff"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 12h14"
+                          />
+                        </svg>
+                      </span>
+                    ) : (
+                      <img className="pl-3" src={addFvr} alt="" />
+                    )}
+                    <div
+                      onClick={() => handleAddFavorite()}
+                      className={`w-full p-4 text-base font-normal text-white hover:opacity-8 text-nowrap transition-al`}
                     >
-                      Add to Favourite
-                    </button>
-                  </div>
+                      {isFavorite ? " Remove to Favorite" : " Add to Favorite"}
+                    </div>
+                  </button>
                 </div>
 
                 <div className="flex items-center mt-14">

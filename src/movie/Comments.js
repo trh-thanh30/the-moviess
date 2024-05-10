@@ -49,11 +49,11 @@ const Comments = () => {
         <div className="flex-col felx gap-y-2">
           <h3 className="text-base font-semibold">Huu Thanh</h3>
           <p>{`${date}`}</p>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo con
-          </p>
-          <div className="mt-1 cursor-pointer" onClick={() => setLiked1(!liked1)}>
+          <p>Neu duoc moi nguoi ung ho to tai 0344247918 MB nhe ❤️</p>
+          <div
+            className="mt-1 cursor-pointer"
+            onClick={() => setLiked1(!liked1)}
+          >
             {liked1 ? (
               <img src={heart} alt="" />
             ) : (
@@ -66,13 +66,16 @@ const Comments = () => {
       <div className="flex mt-12 gap-x-3 comment_user">
         <img src={userAvt} alt="" className="w-[40px] rounded-full" />
         <div className="flex-col felx gap-y-2">
-          <h3 className="text-base font-semibold">Huu Thanh</h3>
+          <h3 className="text-base font-semibold">Em che</h3>
           <p>{`${date}`}</p>
           <p>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo con
           </p>
-          <div className="mt-1 cursor-pointer" onClick={() => setLiked2(!liked2)}>
+          <div
+            className="mt-1 cursor-pointer"
+            onClick={() => setLiked2(!liked2)}
+          >
             {!liked2 ? (
               <img src={heart} alt="" />
             ) : (
@@ -85,13 +88,16 @@ const Comments = () => {
       <div className="flex mt-12 gap-x-3 comment_user">
         <img src={userAvt} alt="" className="w-[40px] rounded-full" />
         <div className="flex-col felx gap-y-2">
-          <h3 className="text-base font-semibold">Huu Thanh</h3>
+          <h3 className="text-base font-semibold">Faker</h3>
           <p>{`${date}`}</p>
           <p>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo con
           </p>
-          <div className="mt-1 cursor-pointer" onClick={() => setLiked3(!liked3)}>
+          <div
+            className="mt-1 cursor-pointer"
+            onClick={() => setLiked3(!liked3)}
+          >
             {liked3 ? (
               <img src={heart} alt="" />
             ) : (
@@ -104,13 +110,13 @@ const Comments = () => {
       <div className="flex mt-12 gap-x-3 comment_user">
         <img src={userAvt} alt="" className="w-[40px] rounded-full" />
         <div className="flex-col felx gap-y-2">
-          <h3 className="text-base font-semibold">Huu Thanh</h3>
+          <h3 className="text-base font-semibold">Zeros</h3>
           <p>{`${date}`}</p>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo con
-          </p>
-          <div className="mt-1 cursor-pointer" onClick={() => setLiked4(!liked4)}>
+          <p>I was solo kill the shy, can't i top ? </p>
+          <div
+            className="mt-1 cursor-pointer"
+            onClick={() => setLiked4(!liked4)}
+          >
             {!liked4 ? (
               <img src={heart} alt="" />
             ) : (
