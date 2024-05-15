@@ -129,20 +129,22 @@ const HomePageDetails = () => {
                 />
               </section>
               <section>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between ">
                   <h2 className="text-xl font-semibold">
                     {movies.origin_name}
                   </h2>
+
                   <button
-                    className={`flex items-center rounded-lg ${
-                      isFavorite ? "bg-red-500" : "bg-green-500"
+                    className={`flex items-center rounded-lg text-base font-semibold ${
+                      isFavorite
+                        ? "bg-red-50 text-red-500"
+                        : "bg-green-50 text-green-500"
                     }`}
                   >
                     {isFavorite ? (
-                      <span className="block pl-3 text-[#fff]">
+                      <span className="block pl-3 text-[#EF5D5B]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="#fff"
                           viewBox="0 0 24 24"
                           strokeWidth="1.5"
                           stroke="currentColor"
@@ -160,7 +162,7 @@ const HomePageDetails = () => {
                     )}
                     <div
                       onClick={() => handleAddFavorite()}
-                      className={`w-full p-4 text-base font-normal text-white hover:opacity-8 text-nowrap transition-al`}
+                      className={`w-full p-4 text-base font-medium hover:opacity-8 text-nowrap transition-al`}
                     >
                       {isFavorite ? " Remove to Favorite" : " Add to Favorite"}
                     </div>
@@ -171,7 +173,10 @@ const HomePageDetails = () => {
                   <div className="flex gap-x-3">
                     {category.length > 0 &&
                       category.map((item) => (
-                        <NavLink className="p-3 text-base font-semibold text-green-500 rounded-lg bg-green-50">
+                        <NavLink
+                          to={`/the-loai/${item.slug}`}
+                          className="p-3 text-base font-semibold text-green-500 rounded-lg bg-green-50"
+                        >
                           {item.name}
                         </NavLink>
                       ))}

@@ -19,11 +19,12 @@ const BannerItem = React.memo(({ item }) => {
       <div className="container">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-extrabold text-[#1A162E] uppercase tracking-wide">
+            <h1 className="xl:text-2xl xl:font-extrabold  text-[#1A162E] uppercase tracking-wide header--slider">
               {origin_name}
             </h1>
             <h2 className="text-[#c40f62] mt-1">{name}</h2>
-            <div className="flex items-center mt-7 gap-x-8">
+
+            <div className="flex items-center mt-7 gap-x-6">
               <div className="flex items-center gap-x-2">
                 <span className="px-3 py-1 text-white bg-black rounded-sm">
                   {episode_current}
@@ -31,9 +32,9 @@ const BannerItem = React.memo(({ item }) => {
                 <span>{quality}</span>
               </div>
 
-              <div className="flex items-center gap-x-2">
+              <div className="flex items-center text-nowrap">
                 {category.length > 0 &&
-                  category.map((item) => (
+                  category.slice(0, 3).map((item) => (
                     <NavLink
                       to={`/the-loai/${item.slug}`}
                       className={"hover:text-[#c40f62] p-2"}
