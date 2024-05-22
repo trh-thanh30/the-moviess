@@ -15,13 +15,16 @@ const MovieList = ({ callAPI }) => {
     `https://phimapi.com/v1/api/danh-sach/${callAPI}`,
     fetcher
   );
-  
+
   const loading = !data && !error;
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);
     window.scrollTo(0, 0);
   }, [data]);
-
+  const slidesPerView =
+    window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2;
+  const spaceBetween =
+    window.innerWidth >= 1024 ? 28 : window.innerWidth >= 768 ? 22 : 22;
   return (
     <Fragment>
       {loading && <div className="loading"></div>}
@@ -36,8 +39,8 @@ const MovieList = ({ callAPI }) => {
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           grabCursor={"true"}
-          spaceBetween={36}
-          slidesPerView={"auto"}
+          slidesPerView={slidesPerView}
+          spaceBetween={spaceBetween}
         >
           {!loading &&
             movies.length > 0 &&
@@ -47,9 +50,7 @@ const MovieList = ({ callAPI }) => {
               </SwiperSlide>
             ))}
         </Swiper>
-        
       </div>
-      
     </Fragment>
   );
 };

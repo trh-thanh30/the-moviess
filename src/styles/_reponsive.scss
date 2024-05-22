@@ -1,6 +1,32 @@
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 991px) {
   .hide-on-pc {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .banner__desc {
+    row-gap: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 28px;
+    margin-bottom: 28px;
+  }
+  .silder__item {
+    column-gap: 16px;
+  }
+
+  .image--slider__item {
+    width: 300px;
+    height: 440px;
+  }
+  .header--slider {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .movie__card--top {
+    margin-top: 44px;
   }
 }
 
@@ -30,16 +56,30 @@
   .orverlay__nav--animation {
     transition: transform 0.3s ease-in-out;
   }
-  
+
   .hide {
-    transform: translateX(-100%)
+    transform: translateX(-100%);
   }
-  
+
   .show {
     transform: translateX(0);
   }
-  .header--slider{
-    font-size: 20px;
+  .header--slider {
+    font-size: 24px;
     font-weight: 600;
+  }
+  .footer__desc--col {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer__decs--tablet {
+    margin-top: 30px;
+    line-height: 1.75;
+    font-size: 16px;
+    width: 89%;
+  }
+  .dropdown-menu__user {
+    right: 179%;
   }
 }

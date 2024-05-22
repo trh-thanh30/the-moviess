@@ -1,9 +1,6 @@
 .time-border {
   border: 1px solid #f00;
 }
-.movie-list .swiper-slide {
-  width: 256px;
-}
 
 .image__hover {
   position: relative;
@@ -31,14 +28,12 @@
   opacity: 0.8;
   transform: scale(1.04);
 }
-.comment_user{
-  border:1px solid #ccc;
+.comment_user {
+  border: 1px solid #ccc;
   border-radius: 12px;
-  padding: 12px;
-  max-width: 80%;
 }
 
-.movie__desc{
-  line-height: 1.8;
-  width: 708px;
-}
+// .movie__desc {
+//   line-height: 1.8;
+//   width: 708px;
+// }

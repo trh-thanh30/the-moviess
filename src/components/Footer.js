@@ -27,7 +27,7 @@ const Footer = () => {
               <img src={logoMovies} alt="" />
               <img src={logo} alt="" />
             </NavLink>
-            <p className="footer__desc">
+            <p className="footer__desc hide-on-tablet">
               The Movies - Made by Tran Huu Thanh, a freshman studying computer
               engineering industry at the University of Industrial Technology.
               The website provides a smooth movie watching experience, without
@@ -37,6 +37,106 @@ const Footer = () => {
             </p>
           </div>
 
+          <div className="footer__col hide-on-tablet">
+            <h3 className="footer__heading">The Movies</h3>
+            <ul className="footer__list">
+              <li>
+                <a href="#!" className="footer__link">
+                  Explore
+                </a>
+              </li>
+              <li>
+                <a href="#!" className="footer__link">
+                  Genre
+                </a>
+              </li>
+              <li>
+                <a href="#!" className="footer__link">
+                  News
+                </a>
+              </li>
+              <li>
+                <a href="#!" className="footer__link">
+                  Movies
+                </a>
+              </li>
+              <li>
+                <a href="#!" className="footer__link">
+                  TV Shows
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="footer__col hide-on-tablet">
+            <h3 className="footer__heading">Support</h3>
+            <ul className="footer__list">
+              <li>
+                <a href="#!" className="footer__link">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#!" className="footer__link">
+                  Order status
+                </a>
+              </li>
+              <li>
+                <a href="#!" className="footer__link">
+                  Store locator
+                </a>
+              </li>
+              <li>
+                <a href="#!" className="footer__link">
+                  FAQ
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="footer__col hide-on-tablet">
+            <h3 className="footer__heading">Contact</h3>
+            <ul className="footer__list">
+              <li>
+                <p className="footer__label">Email</p>
+                <a
+                  href="gmail:contact@grocerymart.com"
+                  className="footer__link"
+                >
+                  contact@themovies.com
+                </a>
+              </li>
+              <li>
+                <p className="footer__label">Telephone</p>
+                <a href="tele:+84-344247918" className="footer__link">
+                  +84-34424-7918
+                </a>
+              </li>
+              <li>
+                <p className="footer__label">Addrees</p>
+                <p className="footer__text">
+                  No. 90, Group 6, Cao Son 2 area, Cam Pha city, Quang Ninh
+                  province
+                </p>
+              </li>
+              <li>
+                <p className="footer__label">Hours</p>
+                <p className="footer__text">M - F 08:00am - 06:00pm</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p className="footer__decs--tablet hide-on-pc">
+          <strong className="uppercase name__user">The Movies</strong> - Made by
+          Tran Huu Thanh, a freshman studying computer engineering industry at
+          the University of Industrial Technology. The website provides a smooth
+          movie watching experience, without annoying ads. Enjoy a rich
+          collection from all genres, without limits, without restrictions. Just
+          focus on enjoying and exploring, The Movies will take care of the
+          rest.
+        </p>
+
+        <div className="hide-on-pc footer__desc--col">
           <div className="footer__col">
             <h3 className="footer__heading">The Movies</h3>
             <ul className="footer__list">
@@ -99,7 +199,10 @@ const Footer = () => {
             <ul className="footer__list">
               <li>
                 <p className="footer__label">Email</p>
-                <a href="gmail:contact@grocerymart.com" className="footer__link">
+                <a
+                  href="gmail:contact@grocerymart.com"
+                  className="footer__link"
+                >
                   contact@themovies.com
                 </a>
               </li>

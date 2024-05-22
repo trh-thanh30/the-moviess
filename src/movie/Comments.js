@@ -44,12 +44,14 @@ const Comments = () => {
         <button className="p-4 text-white bg-green-500 rounded-lg">SEND</button>
       </div>
 
-      <div className="flex mt-12 gap-x-3 comment_user">
+      <div className="flex lg:mt-12 mt-8 gap-x-2  xl:w-[80%] lg:w-[90%] md:w-[100%] comment_user p-2">
         <img src={userAvt} alt="" className="w-[40px] rounded-full" />
         <div className="flex-col felx gap-y-2">
-          <h3 className="text-base font-semibold">Huu Thanh</h3>
-          <p>{`${date}`}</p>
-          <p>Neu duoc moi nguoi ung ho to tai 0344247918 MB nhe ❤️</p>
+          <h3 className="text-sm font-semibold lg:text-base">Huu Thanh</h3>
+          <p className="text-sm lg:text-base">{`${date}`}</p>
+          <p className="text-sm lg:text-base">
+            Neu duoc moi nguoi ung ho to tai 0344247918 MB nhe ❤️
+          </p>
           <div
             className="mt-1 cursor-pointer"
             onClick={() => setLiked1(!liked1)}
@@ -63,12 +65,12 @@ const Comments = () => {
         </div>
       </div>
 
-      <div className="flex mt-12 gap-x-3 comment_user">
+      <div className="flex lg:mt-12 mt-8 gap-x-2  xl:w-[80%] lg:w-[90%] md:w-[100%] comment_user p-2">
         <img src={userAvt} alt="" className="w-[40px] rounded-full" />
         <div className="flex-col felx gap-y-2">
-          <h3 className="text-base font-semibold">Em che</h3>
-          <p>{`${date}`}</p>
-          <p>
+          <h3 className="text-sm font-semibold lg:text-base">Em che</h3>
+          <p className="text-sm lg:text-base">{`${date}`}</p>
+          <p className="text-sm lg:text-base">
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo con
           </p>
@@ -85,12 +87,12 @@ const Comments = () => {
         </div>
       </div>
 
-      <div className="flex mt-12 gap-x-3 comment_user">
+      <div className="flex lg:mt-12 mt-8 gap-x-2  xl:w-[80%] lg:w-[90%] md:w-[100%] comment_user p-2">
         <img src={userAvt} alt="" className="w-[40px] rounded-full" />
         <div className="flex-col felx gap-y-2">
-          <h3 className="text-base font-semibold">Faker</h3>
-          <p>{`${date}`}</p>
-          <p>
+          <h3 className="text-sm font-semibold lg:text-base">Faker</h3>
+          <p className="text-sm lg:text-base">{`${date}`}</p>
+          <p className="text-sm lg:text-base">
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo con
           </p>
@@ -107,12 +109,14 @@ const Comments = () => {
         </div>
       </div>
 
-      <div className="flex mt-12 gap-x-3 comment_user">
+      <div className="flex lg:mt-12 mt-8 gap-x-2  xl:w-[80%] lg:w-[90%] md:w-[100%] comment_user p-2">
         <img src={userAvt} alt="" className="w-[40px] rounded-full" />
         <div className="flex-col felx gap-y-2">
-          <h3 className="text-base font-semibold">Zeros</h3>
-          <p>{`${date}`}</p>
-          <p>I was solo kill the shy, can't i top ? </p>
+          <h3 className="text-sm font-semibold lg:text-base">Zeros</h3>
+          <p className="text-sm lg:text-base">{`${date}`}</p>
+          <p className="text-sm lg:text-base">
+            I was solo kill the shy, can i top ?{" "}
+          </p>
           <div
             className="mt-1 cursor-pointer"
             onClick={() => setLiked4(!liked4)}

@@ -70,7 +70,7 @@ const SignInPage = () => {
   return (
     <div className="input-page">
       <div className="container">
-        <div className="flex items-center justify-center my-12 gap-x-4">
+        <div className="flex items-center justify-center my-7 md:my-10 gap-x-2">
           <span>
             <img src={logoMovies} alt="the-movies" />
           </span>
@@ -86,14 +86,19 @@ const SignInPage = () => {
           className="max-w-[600px] mx-auto"
           action=""
         >
-          <h1 className="heading-signin">Sign in</h1>
-          <div className="flex flex-col gap-6">
-            <label className="label-form" htmlFor="email">
+          <h1 className="text-[#2a4343] md:font-normal md:text-5xl md:mb-11 font-normal text-4xl mb-7">
+            Sign in
+          </h1>
+          <div className="flex flex-col gap-4 md:gap-6">
+            <label
+              className="text-[#7f989a] md:text-lg md:font-medium cursor-pointer text-base font-medium"
+              htmlFor="email"
+            >
               E-mail
             </label>
             <input
               onBlur={formik.handleBlur}
-              className={`outline-none p-4 rounded-lg transition-colors border ${
+              className={`outline-none md:p-4 p-3 rounded-lg transition-colors border text-sm ${
                 formik.touched.email && formik.errors.email
                   ? "border-red-500"
                   : "border-green-500"
@@ -109,13 +114,16 @@ const SignInPage = () => {
               <div className="text-sm text-red-600">{formik.errors.email}</div>
             ) : null}
 
-            <label className="label-form" htmlFor="password">
+            <label
+              className="text-[#7f989a] md:text-lg md:font-medium cursor-pointer text-base font-medium"
+              htmlFor="password"
+            >
               Password
             </label>
             <div className="relative">
               <input
                 onBlur={formik.handleBlur}
-                className={`outline-none w-[100%] p-4 rounded-lg transition-colors border ${
+                className={`outline-none w-[100%] md:p-4 p-3 rounded-lg transition-colors border text-sm ${
                   formik.touched.password && formik.errors.password
                     ? "border-red-500"
                     : "border-green-500"
@@ -147,13 +155,13 @@ const SignInPage = () => {
           </div>
           <button
             type="submit"
-            className="button-form"
+            className="outline-none md:mt-11 mt-8 w-full md:p-[16px] p-3 rounded-3xl text-white bg-[#00fa9a] block md:text-xl text-base"
             disabled={formik.isSubmitting || !formik.isValid}
           >
             {loading ? <div className="loader"></div> : "Sign In"}
           </button>
 
-          <div className="flex items-center gap-2 my-14">
+          <div className="flex items-center gap-2 my-8 md:my-14">
             <span className="stick"></span>
             <span className="form-or">Or</span>
             <span className="stick"></span>
@@ -166,15 +174,17 @@ const SignInPage = () => {
           >
             <div className="flex items-center">
               <img className="w-6 h-6" src={gmail} alt="" />
-              <p className="block mx-auto">Continue with Gmail</p>
+              <p className="block mx-auto text-base md:text-xl">
+                Continue with Gmail
+              </p>
             </div>
           </button>
-          <div className="mt-8 mb-8 text-center">
-            <span className="text-lg text-gray-400">
+          <div className="mt-6 mb-8 text-center md:mt-8">
+            <span className="text-sm text-gray-400 md:text-lg">
               Don’t have an account?{" "}
             </span>
             <NavLink
-              className="text-lg text-green-500 border-b border-gray-400"
+              className="text-sm text-green-500 border-b border-gray-400 md:text-lg"
               to={"/sign-up"}
             >
               Create now

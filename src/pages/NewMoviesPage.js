@@ -16,6 +16,8 @@ const NewMoviesPage = () => {
     `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=${page}&limit=20`,
     fetcher
   );
+  console.log(data);
+  
   const loading = !data && !error;
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const NewMoviesPage = () => {
           </div>
           {loading && <div className="loading"></div>}
           {!loading && (
-            <div className="grid grid-cols-4 gap-x-10 gap-y-6">
+            <div className="grid grid-cols-3 lg:grid-cols-4 xl:gap-x-10 gap-x-6 xl:gap-y-6 gap-y-4">
               {movies.length > 0 &&
                 movies.map((item) => (
                   <NewsMovieCard key={item._id} item={item}></NewsMovieCard>

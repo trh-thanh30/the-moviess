@@ -79,7 +79,7 @@ const SignUpPage = () => {
   return (
     <div className="input-page">
       <div className="container">
-        <div className="flex items-center justify-center my-10 gap-x-4">
+        <div className="flex items-center justify-center my-7 md:my-10 gap-x-2">
           <span>
             <img src={logoMovies} alt="the-movies" />
           </span>
@@ -95,14 +95,19 @@ const SignUpPage = () => {
           className="max-w-[600px] mx-auto"
           action=""
         >
-          <h1 className="heading-signin">Sign Up</h1>
-          <div className="flex flex-col gap-6">
-            <label className="label-form" htmlFor="fullName">
+          <h1 className="text-[#2a4343] md:font-normal md:text-5xl md:mb-11 font-normal text-4xl mb-7">
+            Sign Up
+          </h1>
+          <div className="flex flex-col gap-4 md:gap-6">
+            <label
+              className="text-[#7f989a] md:text-lg md:font-medium cursor-pointer text-base font-medium"
+              htmlFor="fullName"
+            >
               Your Name
             </label>
             <input
               onBlur={formik.handleBlur}
-              className={`outline-none p-4 rounded-lg transition-colors border ${
+              className={`outline-none md:p-4 p-3 rounded-lg transition-colors border text-sm ${
                 formik.touched.fullName && formik.errors.fullName
                   ? "border-red-500"
                   : "border-green-500"
@@ -120,12 +125,15 @@ const SignUpPage = () => {
               </div>
             ) : null}
 
-            <label className="label-form" htmlFor="email">
+            <label
+              className="text-[#7f989a] md:text-lg font-medium cursor-pointer text-base"
+              htmlFor="email"
+            >
               E-mail
             </label>
             <input
               onBlur={formik.handleBlur}
-              className={`outline-none p-4 rounded-lg transition-colors border ${
+              className={`outline-none md:p-4 p-3 rounded-lg transition-colors text-sm border ${
                 formik.touched.email && formik.errors.email
                   ? "border-red-500"
                   : "border-green-500"
@@ -141,13 +149,16 @@ const SignUpPage = () => {
               <div className="text-sm text-red-600">{formik.errors.email}</div>
             ) : null}
 
-            <label className="label-form" htmlFor="password">
+            <label
+              className="text-[#7f989a] md:text-lg font-medium cursor-pointer text-base"
+              htmlFor="password"
+            >
               Password
             </label>
             <div className="relative">
               <input
                 onBlur={formik.handleBlur}
-                className={`outline-none w-[100%] p-4 rounded-lg transition-colors border ${
+                className={`outline-none w-[100%] md:p-4 p-3 rounded-lg transition-colors md:text-sm text-sm border  ${
                   formik.touched.password && formik.errors.password
                     ? "border-red-500"
                     : "border-green-500"
@@ -179,17 +190,17 @@ const SignUpPage = () => {
           </div>
           <button
             type="submit"
-            className="button-form"
+            className="outline-none md:mt-11 mt-8 w-full md:p-[16px] p-3 rounded-3xl text-white bg-[#00fa9a] block md:text-xl text-base"
             disabled={formik.isSubmitting || !formik.isValid}
           >
             {loading ? <div className="loader"></div> : "Sign Up"}
           </button>
-          <div className="mt-8 mb-8 text-center">
-            <span className="text-lg text-gray-400">
-              Do you already have an account?{" "}
+          <div className="mt-6 mb-8 text-center md:mt-8">
+            <span className="text-sm text-gray-400 md:text-lg">
+               Already have an account?{" "}
             </span>
             <NavLink
-              className="text-lg text-green-500 border-b border-gray-400"
+              className="text-sm text-green-500 border-b border-gray-400 md:text-lg"
               to={"/sign-in"}
             >
               Sign in now

@@ -56,7 +56,7 @@ const SeriMoviesPage = () => {
           </div>
           {loading && <div className="loading"></div>}
           {!loading && (
-            <div className="grid grid-cols-4 gap-x-10 gap-y-6">
+            <div className="grid grid-cols-3 lg:grid-cols-4 xl:gap-x-10 gap-x-6 xl:gap-y-6 gap-y-4">
               {movies.length > 0 &&
                 movies.map((item) => (
                   <MovieCard key={item._id} item={item}></MovieCard>

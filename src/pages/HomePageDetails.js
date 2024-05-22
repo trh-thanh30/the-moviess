@@ -112,6 +112,11 @@ const HomePageDetails = () => {
     setIsFavorite(!isFavorite);
   };
 
+  function getMiddleName(name) {
+    const length = name.split(" ").length;
+    return name.split(" ")[length - 1];
+  }
+
   return (
     <>
       <Header></Header>
@@ -120,57 +125,114 @@ const HomePageDetails = () => {
 
         {!loading && (
           <div>
-            <div className="flex mt-20 gap-x-10">
-              <section className="w-[352px] h-[488px]">
+            <div className="mt-16 hide-on-pc">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="mb-2 text-xl font-semibold">
+                    {movies.origin_name}
+                  </h2>
+                  <h2 className="text-[18px] text-[#c40f62] font-normal ">
+                    {movies.name}
+                  </h2>
+                </div>
+
+                <button
+                  className={`flex items-center rounded-lg text-base font-semibold ${
+                    isFavorite
+                      ? "bg-red-50 text-red-500"
+                      : "bg-green-50 text-green-500"
+                  }`}
+                >
+                  {isFavorite ? (
+                    <span className="block pl-3 text-[#EF5D5B]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 12h14"
+                        />
+                      </svg>
+                    </span>
+                  ) : (
+                    <img className="pl-3" src={addFvr} alt="" />
+                  )}
+                  <div
+                    onClick={() => handleAddFavorite()}
+                    className={`w-full p-4 text-base font-medium hover:opacity-8 text-nowrap transition-al`}
+                  >
+                    {isFavorite ? " Remove to Favorite" : " Add to Favorite"}
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center mt-9 lg:mt-20 xl:gap-x-10 gap-x-8 lg:flex-row">
+              <section className="h-[520px]">
                 <img
-                  className="object-cover w-full h-full rounded-lg"
+                  className="object-cover h-full rounded-lg max-w-[500px]"
                   src={movies.poster_url}
                   alt=""
                 />
               </section>
-              <section>
-                <div className="flex items-center justify-between ">
-                  <h2 className="text-xl font-semibold">
-                    {movies.origin_name}
-                  </h2>
 
-                  <button
-                    className={`flex items-center rounded-lg text-base font-semibold ${
-                      isFavorite
-                        ? "bg-red-50 text-red-500"
-                        : "bg-green-50 text-green-500"
-                    }`}
-                  >
-                    {isFavorite ? (
-                      <span className="block pl-3 text-[#EF5D5B]">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          class="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 12h14"
-                          />
-                        </svg>
-                      </span>
-                    ) : (
-                      <img className="pl-3" src={addFvr} alt="" />
-                    )}
-                    <div
-                      onClick={() => handleAddFavorite()}
-                      className={`w-full p-4 text-base font-medium hover:opacity-8 text-nowrap transition-al`}
-                    >
-                      {isFavorite ? " Remove to Favorite" : " Add to Favorite"}
+              <section>
+                <div className="mt-10 hide-on-tablet lg:my-0">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h2 className="mb-2 text-xl font-semibold">
+                        {movies.origin_name}
+                      </h2>
+                      <h2 className="text-[18px] text-[#c40f62] font-normal ">
+                        {movies.name}
+                      </h2>
                     </div>
-                  </button>
+
+                    <button
+                      className={`flex items-center rounded-lg text-base font-semibold ${
+                        isFavorite
+                          ? "bg-red-50 text-red-500"
+                          : "bg-green-50 text-green-500"
+                      }`}
+                    >
+                      {isFavorite ? (
+                        <span className="block pl-3 text-[#EF5D5B]">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M5 12h14"
+                            />
+                          </svg>
+                        </span>
+                      ) : (
+                        <img className="pl-3" src={addFvr} alt="" />
+                      )}
+                      <div
+                        onClick={() => handleAddFavorite()}
+                        className={`w-full p-4 text-base font-medium hover:opacity-8 text-nowrap transition-al`}
+                      >
+                        {isFavorite
+                          ? " Remove to Favorite"
+                          : " Add to Favorite"}
+                      </div>
+                    </button>
+                  </div>
                 </div>
 
-                <div className="flex items-center mt-14">
-                  <div className="flex gap-x-3">
+                <div className="flex flex-col justify-center mt-8 md:items-center xl:items-center xl:flex-row xl:mt-10 gap-y-5 lg:justify-start lg:items-start">
+                  <div className="flex gap-x-3 text-nowrap">
                     {category.length > 0 &&
                       category.map((item) => (
                         <NavLink
@@ -181,28 +243,30 @@ const HomePageDetails = () => {
                         </NavLink>
                       ))}
                   </div>
-                  <div className="ml-4">
-                    <div className="flex items-center gap-x-3">
-                      <img src={date} alt="" />
-                      <span>{movies.year}</span>
+                  <div className="flex items-center">
+                    <div className="ml-4 ">
+                      <div className="flex items-center gap-x-3">
+                        <img src={date} alt="" />
+                        <span>{movies.year}</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="ml-4">
-                    <div className="flex items-center gap-x-3">
-                      <img src={timeIcon} alt="" />
-                      <span>{movies.time}</span>
+                    <div className="ml-4">
+                      <div className="flex items-center gap-x-3">
+                        <img src={timeIcon} alt="" />
+                        <span>{movies.time}</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="ml-4">
-                    <div className="flex items-center gap-x-3">
-                      <div className="p-2 text-base font-semibold text-red-500 rounded-lg bg-red-50">
-                        {movies.quality}
+                    <div className="ml-4">
+                      <div className="flex items-center gap-x-3">
+                        <div className="p-2 text-base font-semibold text-red-500 rounded-lg bg-red-50">
+                          {movies.quality}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <p className="w-[708px] mt-6 text-base font-normal">
+                <p className="mt-6 text-base font-normal">
                   <span className="text-green-500">Content : </span>
                   {movies.content}
                 </p>
@@ -235,15 +299,15 @@ const HomePageDetails = () => {
               </section>
             </div>
 
-            <div className="my-20">
-              <iframe
+            <div className="my-14 lg:my-16">
+              {/* <iframe
                 src={sever}
                 width="100%"
                 height="580px"
                 className="rounded-lg"
                 allowFullScreen
                 sandbox
-              ></iframe>
+              ></iframe> */}
             </div>
             <div className="mt-14">
               <p className="text-xl font-semibold">EPISODE LIST</p>
@@ -254,9 +318,9 @@ const HomePageDetails = () => {
                       data-index={item}
                       data-linkembed={item.link_embed}
                       onClick={() => handleEpisodeClick(item.link_embed)}
-                      className="p-2 text-center text-green-500 rounded-lg cursor-pointer bg-green-50 hover:opacity-60"
+                      className="p-2 text-center text-green-500 rounded-lg cursor-pointer bg-green-50 hover:opacity-60 text-nowrap"
                     >
-                      {item.name}
+                      {getMiddleName(item.name)}
                     </div>
                   ))}
               </div>
