@@ -70,7 +70,7 @@ const SignInPage = () => {
   return (
     <div className="input-page">
       <div className="container">
-        <div className="flex items-center justify-center my-7 md:my-10 gap-x-2">
+        <div className="flex items-center justify-center my-8 md:my-10 gap-x-2">
           <span>
             <img src={logoMovies} alt="the-movies" />
           </span>
@@ -86,7 +86,7 @@ const SignInPage = () => {
           className="max-w-[600px] mx-auto"
           action=""
         >
-          <h1 className="text-[#2a4343] md:font-normal md:text-5xl md:mb-11 font-normal text-4xl mb-7">
+          <h1 className="text-[#2a4343] md:font-normal md:text-5xl md:mb-11 font-normal text-4xl mb-8">
             Sign in
           </h1>
           <div className="flex flex-col gap-4 md:gap-6">

@@ -125,13 +125,13 @@ const HomePageDetails = () => {
 
         {!loading && (
           <div>
-            <div className="mt-16 hide-on-pc">
+            <div className="mt-10 md:mt-16 hide-on-pc">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="mb-2 text-xl font-semibold">
+                  <h2 className="mb-2 text-sm font-semibold md:text-xl">
                     {movies.origin_name}
                   </h2>
-                  <h2 className="text-[18px] text-[#c40f62] font-normal ">
+                  <h2 className="md:text-[18px] text-sm text-[#c40f62] font-normal ">
                     {movies.name}
                   </h2>
                 </div>
@@ -144,13 +144,13 @@ const HomePageDetails = () => {
                   }`}
                 >
                   {isFavorite ? (
-                    <span className="block pl-3 text-[#EF5D5B]">
+                    <span className="block md:pl-3 pl-1 text-[#EF5D5B] ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        class="w-6 h-6"
+                        className="md:w-6 w-[20px]"
                       >
                         <path
                           strokeLinecap="round"
@@ -160,11 +160,15 @@ const HomePageDetails = () => {
                       </svg>
                     </span>
                   ) : (
-                    <img className="pl-3" src={addFvr} alt="" />
+                    <img
+                      className="pl-3 md:w-[26px] w-[20px]"
+                      src={addFvr}
+                      alt=""
+                    />
                   )}
                   <div
                     onClick={() => handleAddFavorite()}
-                    className={`w-full p-4 text-base font-medium hover:opacity-8 text-nowrap transition-al`}
+                    className={`w-full md:p-4 p-2 md:text-base text-sm font-medium hover:opacity-8 text-nowrap transition-all`}
                   >
                     {isFavorite ? " Remove to Favorite" : " Add to Favorite"}
                   </div>
@@ -172,10 +176,10 @@ const HomePageDetails = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center mt-9 lg:mt-20 xl:gap-x-10 gap-x-8 lg:flex-row">
-              <section className="h-[520px]">
+            <div className="flex flex-col items-center mt-6 md:mt-9 lg:mt-20 xl:gap-x-10 gap-x-8 lg:flex-row">
+              <section className="md:h-[520px] h-[400px]">
                 <img
-                  className="object-cover h-full rounded-lg max-w-[500px]"
+                  className="object-cover h-full rounded-lg md:max-w-[500px]"
                   src={movies.poster_url}
                   alt=""
                 />
@@ -231,34 +235,34 @@ const HomePageDetails = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col justify-center mt-8 md:items-center xl:items-center xl:flex-row xl:mt-10 gap-y-5 lg:justify-start lg:items-start">
-                  <div className="flex gap-x-3 text-nowrap">
+                <div className="flex flex-col justify-center mt-5 md:items-center xl:items-center xl:flex-row xl:mt-10 md:gap-y-5 gap-y-3 lg:justify-start lg:items-start">
+                  <div className="flex justify-center gap-x-3 text-nowrap md:justify-normal">
                     {category.length > 0 &&
-                      category.map((item) => (
+                      category.slice(0, 2).map((item) => (
                         <NavLink
                           to={`/the-loai/${item.slug}`}
-                          className="p-3 text-base font-semibold text-green-500 rounded-lg bg-green-50"
+                          className="p-3 text-sm font-semibold text-green-500 rounded-lg md:text-base bg-green-50"
                         >
                           {item.name}
                         </NavLink>
                       ))}
                   </div>
-                  <div className="flex items-center">
-                    <div className="ml-4 ">
-                      <div className="flex items-center gap-x-3">
+                  <div className="flex items-center justify-between text-sm md:justify-normal md:text-base">
+                    <div className="ml-2 md:ml-4">
+                      <div className="flex items-center md:gap-x-3 gap-x-2">
                         <img src={date} alt="" />
                         <span>{movies.year}</span>
                       </div>
                     </div>
                     <div className="ml-4">
-                      <div className="flex items-center gap-x-3">
+                      <div className="flex items-center md:gap-x-3 gap-x-2">
                         <img src={timeIcon} alt="" />
                         <span>{movies.time}</span>
                       </div>
                     </div>
                     <div className="ml-4">
                       <div className="flex items-center gap-x-3">
-                        <div className="p-2 text-base font-semibold text-red-500 rounded-lg bg-red-50">
+                        <div className="p-2 text-sm font-semibold text-red-500 rounded-lg md:text-base bg-red-50">
                           {movies.quality}
                         </div>
                       </div>
@@ -266,12 +270,12 @@ const HomePageDetails = () => {
                   </div>
                 </div>
 
-                <p className="mt-6 text-base font-normal">
+                <p className="mt-4 text-sm font-normal md:mt-6 md:text-base">
                   <span className="text-green-500">Content : </span>
                   {movies.content}
                 </p>
 
-                <div className="flex flex-col mt-8 gap-y-3">
+                <div className="flex flex-col mt-2 text-sm md:mt-8 md:text-base gap-y-3">
                   <div>
                     <span className="text-green-500">Country : </span>
                     <span>{country}</span>
@@ -299,19 +303,19 @@ const HomePageDetails = () => {
               </section>
             </div>
 
-            <div className="my-14 lg:my-16">
-              {/* <iframe
+            <div className="my-8 md:my-14 lg:my-16">
+              <iframe
                 src={sever}
                 width="100%"
-                height="580px"
-                className="rounded-lg"
+                // height="580px"
+                className="rounded-lg md:h-[580px] h-[300px]"
                 allowFullScreen
                 sandbox
-              ></iframe> */}
+              ></iframe>
             </div>
-            <div className="mt-14">
-              <p className="text-xl font-semibold">EPISODE LIST</p>
-              <div className="grid grid-cols-10 mt-4 gap-x-3 gap-y-3">
+            <div className="mt-8 md:mt-14">
+              <p className="text-base font-semibold md:text-xl">EPISODE LIST</p>
+              <div className="grid grid-cols-3 mt-4 text-sm md:grid-cols-10 gap-x-3 gap-y-3 md:text-bae">
                 {episode.length > 0 &&
                   episode.map((item) => (
                     <div

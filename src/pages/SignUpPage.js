@@ -29,7 +29,7 @@ const SignUpPage = () => {
     validationSchema: Yup.object({
       fullName: Yup.string()
         .required("Please enter your name")
-        .max(12, "Your name must be 12 characters or less"),
+        .max(8, "Your name must be 8 characters or less"),
       email: Yup.string()
         .email("Please enter the correct email format : 'example@gmail.com' ")
         .required("Please enter your email address"),
@@ -79,7 +79,7 @@ const SignUpPage = () => {
   return (
     <div className="input-page">
       <div className="container">
-        <div className="flex items-center justify-center my-7 md:my-10 gap-x-2">
+        <div className="flex items-center justify-center my-8 md:my-10 gap-x-2">
           <span>
             <img src={logoMovies} alt="the-movies" />
           </span>
@@ -95,7 +95,7 @@ const SignUpPage = () => {
           className="max-w-[600px] mx-auto"
           action=""
         >
-          <h1 className="text-[#2a4343] md:font-normal md:text-5xl md:mb-11 font-normal text-4xl mb-7">
+          <h1 className="text-[#2a4343] md:font-normal md:text-5xl md:mb-11 font-normal text-4xl mb-8">
             Sign Up
           </h1>
           <div className="flex flex-col gap-4 md:gap-6">
@@ -115,7 +115,7 @@ const SignUpPage = () => {
               type="text"
               name="fullName"
               id="fullName"
-              placeholder="example@gmail.com"
+              placeholder="abcxyz20102005"
               onChange={formik.handleChange}
               value={formik.values.fullName}
             />
@@ -146,7 +146,7 @@ const SignUpPage = () => {
               value={formik.values.email}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div className="text-sm text-red-600">{formik.errors.email}</div>
+              <div className="text-sm text-red-600 ">{formik.errors.email}</div>
             ) : null}
 
             <label
@@ -197,7 +197,7 @@ const SignUpPage = () => {
           </button>
           <div className="mt-6 mb-8 text-center md:mt-8">
             <span className="text-sm text-gray-400 md:text-lg">
-               Already have an account?{" "}
+              Already have an account?{" "}
             </span>
             <NavLink
               className="text-sm text-green-500 border-b border-gray-400 md:text-lg"

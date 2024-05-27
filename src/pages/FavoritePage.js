@@ -11,11 +11,11 @@ const FavoritePage = () => {
     <Fragment>
       <Header></Header>
       <div className="container">
-        <div className="mt-16">
-          <h1 className="text-lg font-semibold uppercase">
+        <div className="mt-10 md:mt-16">
+          <h1 className="text-base font-medium uppercase md:text-lg md:font-semibold">
             list of favorite movies
           </h1>
-          <div className="grid grid-cols-4 gap-x-10 gap-y-6">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:gap-x-10 md:gap-x-6 xl:gap-y-6 md:gap-y-4 movie__card--reponsive--news">
             {favoriteMovies.map((item) => (
               <NewsMovieCard item={item}></NewsMovieCard>
             ))}

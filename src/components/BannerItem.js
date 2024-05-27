@@ -15,7 +15,7 @@ const BannerItem = React.memo(({ item }) => {
   } = item;
 
   return (
-    <section className="mt-12">
+    <section className="mt-12 hide-on-mobile__limit">
       <div className="container">
         <div className="flex items-center justify-between">
           <div>

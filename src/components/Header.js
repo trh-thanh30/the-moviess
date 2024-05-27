@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../assets/image/the-moviess.svg";
 import logoMovies from "../assets/image/logo-image.svg";
 import { NavLink, useNavigate } from "react-router-dom";
+import NavBar from "../assets/image/navbar.svg";
 import IconSearch from "../icon/IconSearch";
 import axios from "axios";
 import logout from "../assets/image/logout.svg";
@@ -10,6 +11,8 @@ import useSWR from "swr";
 import { fetcher } from "../config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import arrowLeft from "../assets/image/arrowleft.svg";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Header = () => {
   const [query, setQuery] = useState("");
   const [menuType, setMenuType] = useState(null);
@@ -86,41 +89,15 @@ const Header = () => {
       handleSearch();
     }
   };
-
+  const handleUpdate = () => {
+    toast.success("Still updating, try soon 👋");
+  };
   return (
     <div className="bg-[#EEE] pt-3 pb-4">
       <div className="container">
         <div className="flex items-center justify-between">
           <button onClick={() => setOpenMenu(true)} className="hide-on-pc">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18 4.5H6"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M18 12H6"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M11 19H6"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <img className="w-6" src={NavBar} alt="" />
           </button>
 
           <div
@@ -409,7 +386,7 @@ const Header = () => {
                       ></path>
                     </svg>
                   </span>
-                  <h1>Coming Soon</h1>
+                  <h1 onClick={handleUpdate}>Coming Soon</h1>
                 </div>
 
                 <div className="my-3 seprate"></div>
@@ -447,10 +424,10 @@ const Header = () => {
 
           <NavLink
             to={"/"}
-            className="flex items-center gap-x-3 immage__header-logo"
+            className="flex items-center md:gap-x-3 gap-x-1 immage__header-logo"
           >
-            <img src={logoMovies} className="w-[68px]  " alt="" />
-            <img src={logo} alt="" className="w-[68px]  " />
+            <img src={logoMovies} className="md:w-[68px] w-[42px]  " alt="" />
+            <img src={logo} alt="" className="md:w-[68px]  w-[42px]" />
           </NavLink>
 
           <div className="hide-on-tablet">
@@ -648,7 +625,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-x-4 ">
+          <div className="flex items-center md:gap-x-4 gap-x-1 ">
             <div className="flex items-center ml-auto bg-white rounded-lg shadow">
               {showOverlay && (
                 <div className="overlay" onClick={handleToggleOverlay}>
@@ -671,16 +648,16 @@ const Header = () => {
               )}
               <IconSearch
                 onClick={handleToggleOverlay}
-                className="cursor-pointer xl:p-3 sm:p-2"
+                className="p-2 cursor-pointer xl:p-3"
               ></IconSearch>
             </div>
             <div className="flex items-center text-base text-[#1A162E] gap-x-2">
               {user ? (
                 <>
                   <div className="flex items-center text-base font-medium gap-x-2 ">
-                    <p>Welcome, </p>
+                    <p className="hide-on-mobile">Welcome, </p>
                     <div className="-mb-4 dropdown">
-                      <strong className="cursor-pointer name__user">
+                      <strong className="text-sm font-semibold lowercase cursor-pointer name__user">
                         {getMiddleName(user.displayName)}
                       </strong>
                       <div className="mt-4">
@@ -744,7 +721,7 @@ const Header = () => {
                 <>
                   <NavLink
                     to={"/sign-up"}
-                    className="p-2 text-base font-medium text-green-500 rounded-lg bg-green-50"
+                    className="p-2 text-sm font-medium text-green-500 rounded-lg md:text-base bg-green-50"
                   >
                     Sign Up
                   </NavLink>

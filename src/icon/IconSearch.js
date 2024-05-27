@@ -4,6 +4,7 @@ const IconSearch = ({ className = "", onClick = () => {} }) => {
   return (
     <span className={className} onClick={onClick}>
       <svg
+        className="md:w-[21px] w-[18px]"
         width="21"
         height="20"
         viewBox="0 0 21 20"

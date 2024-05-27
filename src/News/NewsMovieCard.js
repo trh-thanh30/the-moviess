@@ -24,7 +24,7 @@ const NewsMoiveCard = React.memo(({ item }) => {
         <span className="text-base font-semibold text-nowrap">
           {truncateString(origin_name, 18)}
         </span>
-        <div className="flex items-center gap-x-2">
+        <div className="flex items-center gap-x-[2px]">
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"

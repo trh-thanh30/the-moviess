@@ -1,12 +1,14 @@
 import React, { Fragment, useEffect, useState } from "react";
 import BannerItem from "./BannerItem";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import useSWR from "swr";
 import { fetcher } from "../config";
+
+import "swiper/css/effect-fade";
 
 const Slider = () => {
   const [movies, setMovies] = useState([]);
@@ -22,7 +24,7 @@ const Slider = () => {
   return (
     <Fragment>
       {loading && <div className="loading"></div>}
-      <div className="slider-list">
+      <div className="slider-list--banner">
         <Swiper
           centeredSlides={true}
           autoplay={{
@@ -30,9 +32,10 @@ const Slider = () => {
             disableOnInteraction: false,
           }}
           navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[Autoplay, Pagination, Navigation, EffectFade]}
           grabCursor={"true"}
-          slidesPerView={"auto"}
+          effect={"fade"}
+          fadeEffect={{ crossFade: true }}
         >
           {!loading &&
             movies.length > 0 &&

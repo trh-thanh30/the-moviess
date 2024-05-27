@@ -8,7 +8,6 @@ import Pagination from "@mui/material/Pagination";
 const TrendingPage = () => {
   const [itemOffset] = useState(0);
   const [pageCounts, setPageCounts] = useState("");
-
   const [movies, setMovies] = useState([]);
   const [page, setNextPgae] = useState(1);
 
@@ -37,6 +36,8 @@ const TrendingPage = () => {
   const handleChange = (event, value) => {
     setNextPgae(value);
   };
+  const size =
+    window.innerWidth >= 1024 ? 'large' : window.innerWidth >= 768 ? 'large' : 'small';
 
   useEffect(() => {
     document.title = "The Movies || Odd Movies";
@@ -45,27 +46,31 @@ const TrendingPage = () => {
     <div>
       <Header></Header>
       <div className="container">
-        <div className="mt-16">
+        <div className="mt-10 md:mt-16">
           <div className="flex items-center justify-between">
-            <h1 className="text-lg font-semibold">LIST OF ODD MOVIES</h1>
-            <p className="text-lg font-semibold">
+            <h1 className="text-base font-medium md:text-lg md:font-semibold">
+              LIST OF ODD MOVIES
+            </h1>
+            <p className="text-base font-medium md:text-lg md:font-semibold">
               PAGE{" "}
-              <span className="text-lg font-semibold name__user">{page}</span>{" "}
+              <span className="text-base font-medium md:text-lg md:font-semibold name__user">
+                {page}
+              </span>{" "}
             </p>
           </div>
           {loading && <div className="loading"></div>}
           {!loading && (
-            <div className="grid grid-cols-3 lg:grid-cols-4 xl:gap-x-10 gap-x-6 xl:gap-y-6 gap-y-4">
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:gap-x-10 md:gap-x-6 xl:gap-y-6 md:gap-y-4 movie__card--reponsive">
               {movies.length > 0 &&
                 movies.map((item) => (
                   <MovieCard key={item._id} item={item}></MovieCard>
                 ))}
             </div>
           )}
-          <div className="flex items-center justify-center mt-12">
+          <div className="flex items-center justify-center mt-14 md:mt-13">
             <Pagination
               count={pageCounts}
-              size="large"
+              size={size}
               onChange={handleChange}
               color="primary"
             />

@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Slider from "../components/Slider";
 import MoviePageBody from "../components/MoviePageBody";
+import SliderMobile from "../components/SliderMobile";
 
 const HomePage = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const HomePage = () => {
     <Fragment>
       <Header></Header>
       <Slider></Slider>
+      <SliderMobile></SliderMobile>
       <MoviePageBody></MoviePageBody>
       <Footer></Footer>
     </Fragment>

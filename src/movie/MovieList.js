@@ -6,8 +6,9 @@ import "swiper/css/autoplay";
 import {} from "swiper";
 import "swiper/scss";
 import useSWR from "swr";
-import MovieCard from "../pages/MovieCard";
+// import MovieCard from "../pages/MovieCard";
 import { fetcher } from "../config";
+import MovieCardHome from "./MovieCardHome";
 const MovieList = ({ callAPI }) => {
   const [movies, setMovies] = useState([]);
 
@@ -24,7 +25,7 @@ const MovieList = ({ callAPI }) => {
   const slidesPerView =
     window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2;
   const spaceBetween =
-    window.innerWidth >= 1024 ? 28 : window.innerWidth >= 768 ? 22 : 22;
+    window.innerWidth >= 1024 ? 28 : window.innerWidth >= 768 ? 22 : 14;
   return (
     <Fragment>
       {loading && <div className="loading"></div>}
@@ -46,7 +47,7 @@ const MovieList = ({ callAPI }) => {
             movies.length > 0 &&
             movies.map((item) => (
               <SwiperSlide key={item._id}>
-                <MovieCard item={item}></MovieCard>
+                <MovieCardHome item={item}></MovieCardHome>
               </SwiperSlide>
             ))}
         </Swiper>

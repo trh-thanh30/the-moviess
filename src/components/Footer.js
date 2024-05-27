@@ -19,12 +19,12 @@ const Footer = () => {
   }
 
   return (
-    <div className="mt-16 footer">
+    <div className="mt-9 md:mt-20 footer">
       <div className="container">
-        <div className="footer__row">
+        <div className="footer__row md:pt-[50px] pt-[36px]">
           <div className="footer__col">
-            <NavLink to={"/"} className="flex gap-x-4">
-              <img src={logoMovies} alt="" />
+            <NavLink to={"/"} className="flex md:gap-x-4 gap-x-2">
+              <img className="" src={logoMovies} alt="" />
               <img src={logo} alt="" />
             </NavLink>
             <p className="footer__desc hide-on-tablet">
@@ -70,7 +70,7 @@ const Footer = () => {
 
           <div className="footer__col hide-on-tablet">
             <h3 className="footer__heading">Support</h3>
-            <ul className="footer__list">
+            <ul className="md:mt-[18px] mt-[10px]">
               <li>
                 <a href="#!" className="footer__link">
                   About
@@ -126,7 +126,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <p className="footer__decs--tablet hide-on-pc">
+        <p className="md:mt-[30px] mt-[18px] footer__decs--tablet md:w-[89%] md:text-[16px] w-[100%] text-[14px] hide-on-pc">
           <strong className="uppercase name__user">The Movies</strong> - Made by
           Tran Huu Thanh, a freshman studying computer engineering industry at
           the University of Industrial Technology. The website provides a smooth
@@ -136,99 +136,103 @@ const Footer = () => {
           rest.
         </p>
 
-        <div className="hide-on-pc footer__desc--col">
-          <div className="footer__col">
-            <h3 className="footer__heading">The Movies</h3>
-            <ul className="footer__list">
-              <li>
-                <a href="#!" className="footer__link">
-                  Explore
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="footer__link">
-                  Genre
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="footer__link">
-                  News
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="footer__link">
-                  Movies
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="footer__link">
-                  TV Shows
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div className="hide-on-pc">
+          <div className="md:mt-[30px] mt-[16px] grid md:grid-cols-3 grid-cols-1 md:gap-y-0 gap-y-3">
+            <div className="footer__col">
+              <h3 className="font-semibold md:text-[22px] text-[18px]">
+                The Movies
+              </h3>
+              <ul className="md:mt-[18px] mt-[10px]">
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    Explore
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    Genre
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    News
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    Movies
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    TV Shows
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          <div className="footer__col">
-            <h3 className="footer__heading">Support</h3>
-            <ul className="footer__list">
-              <li>
-                <a href="#!" className="footer__link">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="footer__link">
-                  Order status
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="footer__link">
-                  Store locator
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="footer__link">
-                  FAQ
-                </a>
-              </li>
-            </ul>
-          </div>
+            <div className="footer__col">
+              <h3 className="font-semibold md:text-[22px] text-[18px]">Support</h3>
+              <ul className="md:mt-[18px] mt-[10px]">
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    Order status
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    Store locator
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    FAQ
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          <div className="footer__col">
-            <h3 className="footer__heading">Contact</h3>
-            <ul className="footer__list">
-              <li>
-                <p className="footer__label">Email</p>
-                <a
-                  href="gmail:contact@grocerymart.com"
-                  className="footer__link"
-                >
-                  contact@themovies.com
-                </a>
-              </li>
-              <li>
-                <p className="footer__label">Telephone</p>
-                <a href="tele:+84-344247918" className="footer__link">
-                  +84-34424-7918
-                </a>
-              </li>
-              <li>
-                <p className="footer__label">Addrees</p>
-                <p className="footer__text">
-                  No. 90, Group 6, Cao Son 2 area, Cam Pha city, Quang Ninh
-                  province
-                </p>
-              </li>
-              <li>
-                <p className="footer__label">Hours</p>
-                <p className="footer__text">M - F 08:00am - 06:00pm</p>
-              </li>
-            </ul>
+            <div className="footer__col">
+              <h3 className="font-semibold md:text-[22px] text-[18px]">Contact</h3>
+              <ul className="md:mt-[18px] mt-[10px]">
+                <li>
+                  <p className="md:mt-[20px] font-semibold mt-[14px]">Email</p>
+                  <a
+                    href="gmail:contact@grocerymart.com"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
+                    contact@themovies.com
+                  </a>
+                </li>
+                <li>
+                  <p className="md:mt-[20px] font-semibold mt-[14px]">Telephone</p>
+                  <a href="tele:+84-344247918" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    +84-34424-7918
+                  </a>
+                </li>
+                <li>
+                  <p className="md:mt-[20px] font-semibold mt-[14px]">Addrees</p>
+                  <p className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    No. 90, Group 6, Cao Son 2 area, Cam Pha city, Quang Ninh
+                    province
+                  </p>
+                </li>
+                <li>
+                  <p className="md:mt-[20px] font-semibold mt-[14px]">Hours</p>
+                  <p className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">M - F 08:00am - 06:00pm</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="footer__bottom">
-          <div>
+        <div className="justify-center footer__bottom md:justify-between">
+          <div className="hide-on-mobile">
             <form
               action=""
               className="flex items-center gap-x-2"
@@ -236,7 +240,7 @@ const Footer = () => {
             >
               <input
                 placeholder="Send my your valuate"
-                className="p-4 border border-green-500 rounded-lg outline-none w-[320px]"
+                className="p-4 border border-green-500 rounded-lg outline-none md:w-[320px]"
                 type="text"
                 name=""
                 id=""
