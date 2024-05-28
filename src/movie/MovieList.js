@@ -38,7 +38,7 @@ const MovieList = ({ callAPI }) => {
             disableOnInteraction: false,
           }}
           navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[Pagination, Navigation]}
           grabCursor={"true"}
           slidesPerView={slidesPerView}
           spaceBetween={spaceBetween}

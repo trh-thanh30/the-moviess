@@ -3,6 +3,7 @@ import heartRed from "../assets/image/heart-red.svg";
 import heart from "../assets/image/heart-white.svg";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 
 const Comments = () => {
   const fakeAPI = [
@@ -117,7 +118,15 @@ const Comments = () => {
           </>
         ) : (
           <>
-            <p className="text-lg font-semibold text-slate-500">Anmonymus</p>
+            <div className="flex items-center gap-x-4">
+              <p className="text-lg font-semibold text-slate-500">Anmonymus</p>
+              <NavLink
+                to={"/sign-up"}
+                className="p-2 text-sm font-medium text-green-500 rounded-lg md:text-base bg-green-50"
+              >
+                Sign Up
+              </NavLink>
+            </div>
           </>
         )}
       </div>
@@ -127,7 +136,7 @@ const Comments = () => {
           onChange={(e) => setNewComment(e.target.value)}
           type="text"
           placeholder="Write your comments here....."
-          className="w-[816px] md:p-4 p-2 border border-green-500 rounded-lg outline-none text-slate-500 md:text-base text-xs"
+          className="w-[816px] md:p-4 p-2 border border-green-500 rounded-lg outline-none text-slate-500 md:text-base text-xs bg-green-50"
         />
         <button
           onClick={handleSubmitComment}

@@ -18,7 +18,7 @@ const MovieCard = React.memo(({ item }) => {
             alt={origin_name}
             className="object-cover md:h-[390px] h-full w-full rounded-lg image__father"
           />
-          <img src={play} alt="" className="image__play" />
+          <img src={play} alt="" className="image__play md:w-[50px] w-[40px]" />
         </NavLink>
         <div className="flex items-center justify-between my-2 md:mt-4">
           <span className="text-base font-semibold text-nowrap hide-on-mobile">

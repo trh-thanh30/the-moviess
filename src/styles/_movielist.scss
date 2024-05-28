@@ -9,9 +9,9 @@
   transition: all 0.25s ease-in-out;
 }
 .image__play {
-  left: 106px;
+  left: 50%;
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   opacity: 0;
   visibility: hidden;
@@ -20,8 +20,8 @@
 
 .image__hover:hover .image__play {
   opacity: 1;
-  transform: translateY(-10px);
-  translate: 0 -3px;
+  transform: translateX(-50%);
+  translate: -3px 0px;
   visibility: visible;
 }
 .image__hover:hover .image__father {
