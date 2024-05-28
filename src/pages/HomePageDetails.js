@@ -12,20 +12,21 @@ import date from "../assets/image/date.svg";
 import timeIcon from "../assets/image/timeIcon.svg";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+import slugify from "react-slugify";
 const HomePageDetails = () => {
   const { movieSlug } = useParams();
   const { data, error } = useSWR(
     `https://phimapi.com/phim/${movieSlug}`,
     fetcher
   );
-  console.log(data);
-
+  console.log("Details", data);
   const [movies, setMovies] = useState([]);
   console.log("movie", movies);
   const [country, setCountry] = useState([]);
   const [category, setCategory] = useState([]);
   const [sever, setSever] = useState([]);
   const [episode, setEpisode] = useState([]);
+
   const loading = !data && !error;
 
   useEffect(() => {
@@ -274,7 +275,12 @@ const HomePageDetails = () => {
                 <div className="flex flex-col mt-2 text-sm md:mt-8 md:text-base gap-y-3">
                   <div>
                     <span className="text-green-500">Country : </span>
-                    <span>{country}</span>
+                    <NavLink
+                      className={"hover:text-[#c40f62]"}
+                      to={`/quoc-gia/${slugify(country)}`}
+                    >
+                      {country}
+                    </NavLink>
                   </div>
 
                   <div>
@@ -300,14 +306,14 @@ const HomePageDetails = () => {
             </div>
 
             <div className="my-8 md:my-14 lg:my-16">
-              <iframe
+              {/* <iframe
                 src={sever}
                 width="100%"
                 // height="580px"
                 className="rounded-lg md:h-[580px] h-[300px]"
                 allowFullScreen
                 sandbox
-              ></iframe>
+              ></iframe> */}
             </div>
             <div className="mt-8 md:mt-14">
               <p className="text-base font-semibold md:text-xl">EPISODE LIST</p>
