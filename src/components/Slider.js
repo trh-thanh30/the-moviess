@@ -23,7 +23,7 @@ const Slider = () => {
   }, [data]);
   return (
     <Fragment>
-      {loading && <div className="loading"></div>}
+      {/* {loading && <div className="loading"></div>} */}
       <div className="slider-list--banner">
         <Swiper
           centeredSlides={true}

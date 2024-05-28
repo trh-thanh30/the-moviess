@@ -28,7 +28,7 @@ const MovieList = ({ callAPI }) => {
     window.innerWidth >= 1024 ? 28 : window.innerWidth >= 768 ? 22 : 14;
   return (
     <Fragment>
-      {loading && <div className="loading"></div>}
+      {/* {loading && <div className="loading"></div>} */}
       <div className="movie-list">
         <Swiper
           className="-ml-16 -mr-16"

@@ -51,28 +51,32 @@ const SeriMoviesPage = () => {
   return (
     <div>
       <Header></Header>
+      {loading && <div className="header__loading"></div>}
       <div className="container">
         <div className="mt-10 md:mt-16">
-          <div className="flex items-center justify-between">
-            <h1 className="text-base font-medium md:text-lg md:font-semibold">
-              LIST OF SERIS MOVIES FILM
-            </h1>
-            <p className="text-base font-medium md:text-lg md:font-semibold">
-              PAGE{" "}
-              <span className="text-base font-medium md:text-lg md:font-semibold name__user">
-                {page}
-              </span>{" "}
-            </p>
-          </div>
-          {loading && <div className="loading"></div>}
           {!loading && (
-            <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:gap-x-10 md:gap-x-6 xl:gap-y-6 md:gap-y-4 movie__card--reponsive">
-              {movies.length > 0 &&
-                movies.map((item) => (
-                  <MovieCard key={item._id} item={item}></MovieCard>
-                ))}
+            <div>
+              <div className="flex items-center justify-between">
+                <h1 className="text-base font-medium md:text-lg md:font-semibold">
+                  LIST OF SERIS MOVIES FILM
+                </h1>
+                <p className="text-base font-medium md:text-lg md:font-semibold">
+                  PAGE{" "}
+                  <span className="text-base font-medium md:text-lg md:font-semibold name__user">
+                    {page}
+                  </span>{" "}
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:gap-x-10 md:gap-x-6 xl:gap-y-6 md:gap-y-4 movie__card--reponsive">
+                {movies.length > 0 &&
+                  movies.map((item) => (
+                    <MovieCard key={item._id} item={item}></MovieCard>
+                  ))}
+              </div>
             </div>
           )}
+
           <div className="flex items-center justify-center mt-14 md:mt-13">
             <Pagination
               count={pageCounts}

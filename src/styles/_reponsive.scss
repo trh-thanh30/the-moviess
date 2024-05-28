@@ -26,7 +26,7 @@
   }
 
   .movie__card--top {
-    margin-top: 44px;
+    margin-top: 8px;
   }
 }
 
@@ -68,7 +68,7 @@
     font-size: 24px;
     font-weight: 600;
   }
-  
+
   .footer__decs--tablet {
     line-height: 1.75;
   }
@@ -104,8 +104,14 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 480px) {
   .image__movie--card--mobile {
     height: 240px;
+  }
+  .Toastify__toast-container {
+    width: 90% !important;
+    padding: 0;
+    margin-left: auto !important;
+    right: 0 !important;
   }
 }

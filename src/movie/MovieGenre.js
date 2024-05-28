@@ -40,7 +40,11 @@ const MovieGenre = () => {
   }, [data, itemOffset, pageCounts]);
   console.log(pageCounts);
   const size =
-  window.innerWidth >= 1024 ? 'large' : window.innerWidth >= 768 ? 'large' : 'small';
+    window.innerWidth >= 1024
+      ? "large"
+      : window.innerWidth >= 768
+      ? "large"
+      : "small";
 
   const handleChange = (event, value) => {
     setNextPage(value);
@@ -53,19 +57,23 @@ const MovieGenre = () => {
   return (
     <Fragment>
       <Header></Header>
+      {loading && <div className="header__loading"></div>}
       <div className="container">
-        {loading && <div className="loading"></div>}
         {!loading && (
           <div className="mt-10 md:mt-16">
             <div className="flex items-center justify-between">
               <h1 className="text-sm font-medium md:text-lg md:font-semibold">
                 LIST OF{" "}
-                <span className="uppercase text-[#c40f62] text-sm font-medium md:text-lg md:font-semibold">"{title}"</span>{" "}
+                <span className="uppercase text-[#c40f62] text-sm font-medium md:text-lg md:font-semibold">
+                  "{title}"
+                </span>{" "}
                 MOVIES{" "}
               </h1>
               <p className="text-sm font-medium md:text-lg md:font-semibold">
                 PAGE{" "}
-                <span className="text-sm font-medium md:text-lg md:font-semibold name__user">{page}</span>{" "}
+                <span className="text-sm font-medium md:text-lg md:font-semibold name__user">
+                  {page}
+                </span>{" "}
               </p>
             </div>
             <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:gap-x-10 md:gap-x-6 xl:gap-y-6 md:gap-y-4 movie__card--reponsive">

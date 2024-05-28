@@ -12,9 +12,6 @@ import date from "../assets/image/date.svg";
 import timeIcon from "../assets/image/timeIcon.svg";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
-const handleAddMovie = () => {
-  toast.success("Movie added to favorites list !!!");
-};
 const HomePageDetails = () => {
   const { movieSlug } = useParams();
   const { data, error } = useSWR(
@@ -120,9 +117,8 @@ const HomePageDetails = () => {
   return (
     <>
       <Header></Header>
+      {loading && <div className="header__loading"></div>}
       <div className="container">
-        {loading && <div className="loading"></div>}
-
         {!loading && (
           <div>
             <div className="mt-10 md:mt-16 hide-on-pc">

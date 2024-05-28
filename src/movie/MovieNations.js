@@ -59,8 +59,8 @@ const MovieNations = () => {
   return (
     <Fragment>
       <Header></Header>
+      {loading && <div className="header__loading"></div>}
       <div className="container">
-        {loading && <div className="loading"></div>}
         {!loading && (
           <div className="mt-10 md:mt-16">
             <div className="flex items-center justify-between">
