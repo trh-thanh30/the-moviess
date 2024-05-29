@@ -77,38 +77,31 @@ const HomePageDetails = () => {
   };
 
   useEffect(() => {
-    document.title = `${movies.origin_name} - ${movies.name}`;
+    const nameTille = `${movies.origin_name} - ${movies.name} `;
+    if (nameTille) {
+      document.title = nameTille;
+    } else {
+      document.title = "loading.....";
+    }
     window.scrollTo(0, 0);
   }, [movies]);
 
   const [isFavorite, setIsFavorite] = useState(false);
-
-  // Logic kiểm tra xem phim có trong danh sách yêu thích không
+  const handleAddFavorite = () => {
+    const favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
+    const updateList = isFavorite
+      ? favoriteMovies.filter((movie) => movie.slug !== movies.slug)
+      : [...favoriteMovies, movies];
+    toast.success("saved");
+    localStorage.setItem("favoriteMovies", JSON.stringify(updateList));
+    setIsFavorite(!isFavorite);
+  };
   useEffect(() => {
     const favoriteMovies =
       JSON.parse(localStorage.getItem("favoriteMovies")) || [];
-    const found = favoriteMovies.find(
-      (movie) => movies.length > 0 && movie.slug === movies.slug
-    );
+    const found = favoriteMovies.find((movie) => movie.slug === movies.slug);
     setIsFavorite(!!found);
   }, [movies]);
-
-  const handleAddFavorite = () => {
-    const favoriteMovies =
-      JSON.parse(localStorage.getItem("favoriteMovies")) || [];
-    if (!isFavorite) {
-      favoriteMovies.push(movies);
-      localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
-      toast.success("Movie saved to favorites list!!!");
-    } else {
-      const updatedList = favoriteMovies.filter(
-        (movie) => movies.length > 0 && movie.slug !== movies.slug
-      );
-      toast.warning("Unsaved movie in favorites list!!!");
-      localStorage.setItem("favoriteMovies", JSON.stringify(updatedList));
-    }
-    setIsFavorite(!isFavorite);
-  };
 
   function getMiddleName(name) {
     const length = name.split(" ").length;
