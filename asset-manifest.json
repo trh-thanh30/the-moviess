@@ -1,15 +1,36 @@
 {
   "files": {
-    "main.css": "/the-moviess/static/css/main.787ab098.css",
-    "main.js": "/the-moviess/static/js/main.12826a1a.js",
-    "static/js/453.ed3810f9.chunk.js": "/the-moviess/static/js/453.ed3810f9.chunk.js",
+    "main.css": "/the-moviess/static/css/main.241644ba.css",
+    "main.js": "/the-moviess/static/js/main.27be3d7d.js",
+    "static/js/453.68693753.chunk.js": "/the-moviess/static/js/453.68693753.chunk.js",
+    "static/media/logo-image.svg": "/the-moviess/static/media/logo-image.6017561dced47f4e771440674c178661.svg",
+    "static/media/trending.svg": "/the-moviess/static/media/trending.4e3a6402fe4fba30ace77a5bd7f54847.svg",
+    "static/media/404-image.svg": "/the-moviess/static/media/404-image.131fd71e7ba3ed40c61cba3e109f8b6b.svg",
+    "static/media/the-moviess.svg": "/the-moviess/static/media/the-moviess.0faa4d4c40b1597a3f6ea7cfd811d5da.svg",
+    "static/media/date.svg": "/the-moviess/static/media/date.3c82037c72e661205d371f0eea0d4006.svg",
+    "static/media/timeIcon.svg": "/the-moviess/static/media/timeIcon.1429f969d9416b0469fe4b50e80955da.svg",
+    "static/media/mess.svg": "/the-moviess/static/media/mess.dc53780f1ea4eeb9467720befd41e333.svg",
+    "static/media/telegram.svg": "/the-moviess/static/media/telegram.08b5eef180ac7a6e20116ff4211bd2d3.svg",
+    "static/media/github.svg": "/the-moviess/static/media/github.841b2904d16ae04224a59af5ce37d878.svg",
+    "static/media/facebook.svg": "/the-moviess/static/media/facebook.70069e69dbca00a2737328c26947604c.svg",
     "index.html": "/the-moviess/index.html",
-    "main.787ab098.css.map": "/the-moviess/static/css/main.787ab098.css.map",
-    "main.12826a1a.js.map": "/the-moviess/static/js/main.12826a1a.js.map",
-    "453.ed3810f9.chunk.js.map": "/the-moviess/static/js/453.ed3810f9.chunk.js.map"
+    "static/media/youtube.svg": "/the-moviess/static/media/youtube.bd5f638940dea8193e9d3f34f2108a42.svg",
+    "static/media/logout.svg": "/the-moviess/static/media/logout.e3890449fa59f630cd78ed5f30497bc4.svg",
+    "static/media/heart-white.svg": "/the-moviess/static/media/heart-white.e33cd8dd39c3206c3f1ed58312ea86bf.svg",
+    "static/media/heart-red.svg": "/the-moviess/static/media/heart-red.924ef3b072c14e5607a5bbc308b7b366.svg",
+    "static/media/watch.svg": "/the-moviess/static/media/watch.63fc4f6aa7af54770ac5121ce2ad90a0.svg",
+    "static/media/play.svg": "/the-moviess/static/media/play.a27b7302f0f5ed0a60d9dd3129d602cf.svg",
+    "static/media/gmail.svg": "/the-moviess/static/media/gmail.786e92e9d4392cd3470390f1d3c12842.svg",
+    "static/media/star.svg": "/the-moviess/static/media/star.4533611a6e02724ce56a1679a9e6eee8.svg",
+    "static/media/navbar.svg": "/the-moviess/static/media/navbar.ebec9f85f1e7b7e65d214a032a0e783e.svg",
+    "static/media/add-fvr.svg": "/the-moviess/static/media/add-fvr.2346adf57158835ce552c65b7e412339.svg",
+    "static/media/arrowleft.svg": "/the-moviess/static/media/arrowleft.284164f132f9d36de2594189e484f682.svg",
+    "main.241644ba.css.map": "/the-moviess/static/css/main.241644ba.css.map",
+    "main.27be3d7d.js.map": "/the-moviess/static/js/main.27be3d7d.js.map",
+    "453.68693753.chunk.js.map": "/the-moviess/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.787ab098.css",
-    "static/js/main.12826a1a.js"
+    "static/css/main.241644ba.css",
+    "static/js/main.27be3d7d.js"
   ]
 }
