@@ -10,8 +10,6 @@ import CartoonPage from "./pages/CartoonPage";
 import HomePageDetails from "./pages/HomePageDetails";
 import TiviSeriesPage from "./pages/TiviSeriesPage";
 import SearchPage from "./pages/SearchPage";
-import Header from "./components/Header";
-import { query } from "firebase/firestore";
 import NewMoviesPage from "./pages/NewMoviesPage";
 import MovieGenre from "./movie/MovieGenre";
 import MovieNations from "./movie/MovieNations";
@@ -20,7 +18,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage></HomePage>}></Route>
+        <Route path="/the-moviess" element={<HomePage></HomePage>}></Route>
         <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>
         <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
         <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
