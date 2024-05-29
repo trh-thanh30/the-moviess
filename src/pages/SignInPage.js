@@ -43,7 +43,7 @@ const SignInPage = () => {
         );
 
         setLoading(false);
-        navigate("/");
+        navigate("/the-moviess");
         toast.success(`Logged in successfully !!! Hello ${values.email} 😽👋`);
       } catch (error) {
         if (error.code === "auth/invalid-credential") {
