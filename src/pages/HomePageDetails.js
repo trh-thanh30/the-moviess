@@ -19,9 +19,7 @@ const HomePageDetails = () => {
     `https://phimapi.com/phim/${movieSlug}`,
     fetcher
   );
-  console.log("Details", data);
   const [movies, setMovies] = useState([]);
-  console.log("movie", movies);
   const [country, setCountry] = useState([]);
   const [category, setCategory] = useState([]);
   const [sever, setSever] = useState([]);
@@ -201,7 +199,7 @@ const HomePageDetails = () => {
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
                             stroke="currentColor"
-                            class="w-6 h-6"
+                            className="w-6 h-6"
                           >
                             <path
                               strokeLinecap="round"
@@ -299,14 +297,14 @@ const HomePageDetails = () => {
             </div>
 
             <div className="my-8 md:my-14 lg:my-16">
-              {/* <iframe
+              <iframe
                 src={sever}
                 width="100%"
                 // height="580px"
                 className="rounded-lg md:h-[580px] h-[300px]"
                 allowFullScreen
                 sandbox
-              ></iframe> */}
+              ></iframe>
             </div>
             <div className="mt-8 md:mt-14">
               <p className="text-base font-semibold md:text-xl">EPISODE LIST</p>

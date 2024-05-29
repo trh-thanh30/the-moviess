@@ -14,7 +14,6 @@ const SliderMobile = () => {
     `https://phimapi.com/v1/api/the-loai/tinh-cam`,
     fetcher
   );
-  console.log("sliderMobile", movies);
   const loading = !data && !error;
   useEffect(() => {
     if (data && data.data && data.data.items) setMovies(data.data.items);

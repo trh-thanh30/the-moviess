@@ -144,27 +144,42 @@ const Footer = () => {
               </h3>
               <ul className="md:mt-[18px] mt-[10px]">
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     Explore
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     Genre
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     News
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     Movies
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     TV Shows
                   </a>
                 </li>
@@ -172,25 +187,39 @@ const Footer = () => {
             </div>
 
             <div className="footer__col">
-              <h3 className="font-semibold md:text-[22px] text-[18px]">Support</h3>
+              <h3 className="font-semibold md:text-[22px] text-[18px]">
+                Support
+              </h3>
               <ul className="md:mt-[18px] mt-[10px]">
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     Order status
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     Store locator
                   </a>
                 </li>
                 <li>
-                  <a href="#!" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <a
+                    href="#!"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     FAQ
                   </a>
                 </li>
@@ -198,7 +227,9 @@ const Footer = () => {
             </div>
 
             <div className="footer__col">
-              <h3 className="font-semibold md:text-[22px] text-[18px]">Contact</h3>
+              <h3 className="font-semibold md:text-[22px] text-[18px]">
+                Contact
+              </h3>
               <ul className="md:mt-[18px] mt-[10px]">
                 <li>
                   <p className="md:mt-[20px] font-semibold mt-[14px]">Email</p>
@@ -210,13 +241,20 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <p className="md:mt-[20px] font-semibold mt-[14px]">Telephone</p>
-                  <a href="tele:+84-344247918" className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                  <p className="md:mt-[20px] font-semibold mt-[14px]">
+                    Telephone
+                  </p>
+                  <a
+                    href="tele:+84-344247918"
+                    className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block"
+                  >
                     +84-34424-7918
                   </a>
                 </li>
                 <li>
-                  <p className="md:mt-[20px] font-semibold mt-[14px]">Addrees</p>
+                  <p className="md:mt-[20px] font-semibold mt-[14px]">
+                    Addrees
+                  </p>
                   <p className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
                     No. 90, Group 6, Cao Son 2 area, Cam Pha city, Quang Ninh
                     province
@@ -224,7 +262,9 @@ const Footer = () => {
                 </li>
                 <li>
                   <p className="md:mt-[20px] font-semibold mt-[14px]">Hours</p>
-                  <p className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">M - F 08:00am - 06:00pm</p>
+                  <p className="md:text-base text-sm hover:text-[#c40f62] md:py-2 py-1 block">
+                    M - F 08:00am - 06:00pm
+                  </p>
                 </li>
               </ul>
             </div>
@@ -258,13 +298,26 @@ const Footer = () => {
             </p>
           </div>
           <div className="footer__socials">
-            <NavLink className="footer__social-link">
+            <NavLink
+              to={
+                "https://www.facebook.com/profile.php?id=100046281706417&locale=vi_VN"
+              }
+              className="footer__social-link"
+            >
               <img src={facebook} alt="" />
             </NavLink>
-            <NavLink className="footer__social-link">
+            <NavLink
+              to={
+                "https://www.facebook.com/profile.php?id=100046281706417&locale=vi_VN"
+              }
+              className="footer__social-link"
+            >
               <img src={mess} alt="" />
             </NavLink>
-            <NavLink className="footer__social-link">
+            <NavLink
+              to={"https://github.com/trh-thanh30"}
+              className="footer__social-link"
+            >
               <img src={github} alt="" />
             </NavLink>
             <NavLink className="footer__social-link">

@@ -31,15 +31,14 @@ const Header = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [categories, setCategories] = useState([]);
   const [countries, setCountries] = useState([]);
-  const [dropdown, setDropDown] = useState("");
 
   const handleToggleOverlay = () => {
     setShowOverlay(!showOverlay);
-    // if (!showOverlay) {
-    //   document.body.style.overflow = "hidden"; // Ngăn cuộn khi overlay hiển thị
-    // } else {
-    //   document.body.style.overflow = "auto"; // Cho phép cuộn khi overlay ẩn đi
-    // }
+    if (!showOverlay) {
+      document.body.style.overflow = "hidden"; // Ngăn cuộn khi overlay hiển thị
+    } else {
+      document.body.style.overflow = "auto"; // Cho phép cuộn khi overlay ẩn đi
+    }
   };
   const navigate = useNavigate();
 
@@ -49,7 +48,6 @@ const Header = () => {
   useEffect(() => {}, []);
   const [user, setUser] = useState(null);
   const { data } = useSWR(`https://phimapi.com/the-loai`, fetcher);
-  console.log(data);
   const handleFetchContry = async () => {
     const country = await axios.get(`https://phimapi.com/quoc-gia`);
     if (country && country.data) setCountries(country.data);
@@ -77,11 +75,6 @@ const Header = () => {
   const handleSearch = () => {
     navigate(`/search/${query}`);
     setShowOverlay(!showOverlay);
-    // if (!showOverlay) {
-    //   document.body.style.overflow = "hidden";
-    // } else {
-    //   document.body.style.overflow = "auto";
-    // }
   };
 
   const handleKeyPress = (e) => {
@@ -116,7 +109,7 @@ const Header = () => {
                 openMenu ? "translate-x-0" : "-translate-x-full"
               }`}
             >
-              <div className="p-4">
+              <div className="p-6">
                 <img
                   onClick={(e) => {
                     if (e.target !== e.currentTarget) return;
@@ -142,16 +135,16 @@ const Header = () => {
                       height="18"
                       viewBox="0 0 48 48"
                     >
-                      <g fill="none" stroke="currentColor" stroke-width="4">
+                      <g fill="none" stroke="currentColor" strokeWidth="4">
                         <path
-                          stroke-linejoin="round"
+                          strokeLinejoin="round"
                           d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"
                         ></path>
                         <path
-                          stroke-linejoin="round"
+                          strokeLinejoin="round"
                           d="M24 18a3 3 0 1 0 0-6a3 3 0 0 0 0 6Zm0 18a3 3 0 1 0 0-6a3 3 0 0 0 0 6Zm-9-9a3 3 0 1 0 0-6a3 3 0 0 0 0 6Zm18 0a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"
                         ></path>
-                        <path stroke-linecap="round" d="M24 44h20"></path>
+                        <path strokeLinecap="round" d="M24 44h20"></path>
                       </g>
                     </svg>
                   </span>
@@ -165,13 +158,13 @@ const Header = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
-                      class="w-[18px] h-[18px]"
+                      className="w-[18px] h-[18px]"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="m8.25 4.5 7.5 7.5-7.5 7.5"
                       />
                     </svg>
@@ -255,13 +248,13 @@ const Header = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
-                      class="w-[18px] h-[18px]"
+                      className="w-[18px] h-[18px]"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="m8.25 4.5 7.5 7.5-7.5 7.5"
                       />
                     </svg>
@@ -288,7 +281,6 @@ const Header = () => {
                                   if (result.isConfirmed) {
                                     navigate(`/the-loai/${item.slug}`);
                                   } else {
-                                    console.log("Back");
                                     navigate(`/`);
                                   }
                                 });
@@ -340,13 +332,13 @@ const Header = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
-                      class="w-[18px] h-[18px]"
+                      className="w-[18px] h-[18px]"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="m8.25 4.5 7.5 7.5-7.5 7.5"
                       />
                     </svg>
@@ -387,6 +379,36 @@ const Header = () => {
                     </svg>
                   </span>
                   <h1 onClick={handleUpdate}>Coming Soon</h1>
+                </div>
+
+                <div className="my-3 seprate"></div>
+                <div className="flex items-center gap-x-2">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="md:w-[24px] w-[22px]"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                      />
+                    </svg>
+                  </span>
+                  <NavLink
+                    to="/favourite"
+                    onClick={() => {
+                      toast.success(
+                        "Navigate to the favorite page successfully !"
+                      );
+                    }}
+                  >
+                    Favorite List
+                  </NavLink>
                 </div>
 
                 <div className="my-3 seprate"></div>
@@ -457,9 +479,9 @@ const Header = () => {
                       <path
                         d="M9.5 4.25L6 7.75L2.5 4.25"
                         stroke="#1A162E"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
@@ -524,9 +546,9 @@ const Header = () => {
                       <path
                         d="M9.5 4.25L6 7.75L2.5 4.25"
                         stroke="#1A162E"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
@@ -552,7 +574,6 @@ const Header = () => {
                                   if (result.isConfirmed) {
                                     navigate(`/the-loai/${item.slug}`);
                                   } else {
-                                    console.log("Back");
                                     navigate(`/`);
                                   }
                                 });
@@ -586,9 +607,9 @@ const Header = () => {
                       <path
                         d="M9.5 4.25L6 7.75L2.5 4.25"
                         stroke="#1A162E"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
@@ -625,7 +646,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex items-center md:gap-x-4 gap-x-1 ">
+          <div className="flex items-center md:gap-x-4 gap-x-2">
             <div className="flex items-center ml-auto bg-white rounded-lg shadow">
               {showOverlay && (
                 <div className="overlay" onClick={handleToggleOverlay}>

@@ -60,8 +60,8 @@ const SignInPage = () => {
     },
   });
   const handleSignInWithEmail = async (e) => {
-    const provider = await new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
+    const provider = new GoogleAuthProvider(e);
+    return await signInWithPopup(auth, provider);
   };
 
   useEffect(() => {

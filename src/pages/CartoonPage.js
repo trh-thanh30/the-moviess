@@ -49,7 +49,7 @@ const CartoonPage = () => {
       <Header></Header>
       {loading && <div className="header__loading"></div>}
       <div className="container">
-        <div className="mt-16">
+        <div className="md:mt-16 mt-10">
           {!loading && (
             <div>
               <div className="flex items-center justify-between">
