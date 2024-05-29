@@ -23,7 +23,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer__row md:pt-[50px] pt-[36px]">
           <div className="footer__col">
-            <NavLink to={"/"} className="flex md:gap-x-4 gap-x-2">
+            <NavLink to={"/the-moviess"} className="flex md:gap-x-4 gap-x-2">
               <img className="" src={logoMovies} alt="" />
               <img src={logo} alt="" />
             </NavLink>
