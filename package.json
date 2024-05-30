@@ -1,5 +1,6 @@
 {
   "homepage": "https://trh-thanh30.github.io/the-moviess",
+  "single-movies": "https://trh-thanh30.github.io/the-moviess/signle-movies",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
