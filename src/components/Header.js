@@ -178,7 +178,7 @@ const Header = () => {
                           ? "text-[#c40f62]  hover:text-[#c40f62]"
                           : "hover:text-[#c40f62] transition-colors "
                       }
-                      to={"/signle-movies"}
+                      to={"/the-moviess/signle-movies"}
                     >
                       Phim Lẻ
                     </NavLink>
@@ -494,7 +494,7 @@ const Header = () => {
                           ? "text-[#c40f62]  hover:text-[#c40f62]"
                           : "hover:text-[#c40f62] transition-colors "
                       }
-                      to={"/signle-movies"}
+                      to={"/the-moviess/signle-movies"}
                     >
                       Phim Lẻ
                     </NavLink>
