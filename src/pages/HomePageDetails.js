@@ -91,12 +91,12 @@ const HomePageDetails = () => {
       ? favoriteMovies.filter((movie) => movie.slug !== movies.slug)
       : [...favoriteMovies, movies];
     toast.success("saved");
-    localStorage.setItem("favoriteMovies", JSON.stringify(updateList));
+    sessionStorage.setItem("favoriteMovies", JSON.stringify(updateList));
     setIsFavorite(!isFavorite);
   };
   useEffect(() => {
     const favoriteMovies =
-      JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+      JSON.parse(sessionStorage.getItem("favoriteMovies")) || [];
     const found = favoriteMovies.find((movie) => movie.slug === movies.slug);
     setIsFavorite(!!found);
   }, [movies]);
