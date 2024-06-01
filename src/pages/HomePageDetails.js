@@ -95,11 +95,10 @@ const HomePageDetails = () => {
       const updateList = isFavorite
         ? favoriteMovies.filter((movie) => movie.slug !== movies.slug)
         : [...favoriteMovies, movies];
-      toast.success("saved");
+      toast.success("Saved");
       localStorage.setItem("favoriteMovies", JSON.stringify(updateList));
       setIsFavorite(!isFavorite);
     }
-    console.log(favoriteMovies);
   };
 
   useEffect(() => {
@@ -107,7 +106,6 @@ const HomePageDetails = () => {
       JSON.parse(localStorage.getItem("favoriteMovies")) || [];
     const found = favoriteMovies.find((movie) => movie.slug === movies.slug);
     setIsFavorite(!!found);
-    console.log(favoriteMovies);
   }, [movies]);
 
   function getMiddleName(name) {
@@ -306,14 +304,14 @@ const HomePageDetails = () => {
             </div>
 
             <div className="my-8 md:my-14 lg:my-16">
-              {/* <iframe
+              <iframe
                 src={sever}
                 width="100%"
                 // height="580px"
                 className="rounded-lg md:h-[580px] h-[300px]"
                 allowFullScreen
                 sandbox
-              ></iframe> */}
+              ></iframe>
             </div>
             <div className="mt-8 md:mt-14">
               <p className="text-base font-semibold md:text-xl">EPISODE LIST</p>
