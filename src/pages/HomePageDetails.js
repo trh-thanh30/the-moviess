@@ -85,8 +85,11 @@ const HomePageDetails = () => {
   }, [movies]);
 
   const [isFavorite, setIsFavorite] = useState(false);
+  // useEffect(() => {
+  //   const 
+  // },[])
   const handleAddFavorite = () => {
-    const favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
+    const favoriteMovies = JSON.parse(sessionStorage.getItem("favoriteMovies"));
     const updateList = isFavorite
       ? favoriteMovies.filter((movie) => movie.slug !== movies.slug)
       : [...favoriteMovies, movies];
