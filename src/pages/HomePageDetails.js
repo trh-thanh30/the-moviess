@@ -85,23 +85,29 @@ const HomePageDetails = () => {
   }, [movies]);
 
   const [isFavorite, setIsFavorite] = useState(false);
-  // useEffect(() => {
-  //   const 
-  // },[])
+
   const handleAddFavorite = () => {
-    const favoriteMovies = JSON.parse(sessionStorage.getItem("favoriteMovies"));
-    const updateList = isFavorite
-      ? favoriteMovies.filter((movie) => movie.slug !== movies.slug)
-      : [...favoriteMovies, movies];
-    toast.success("saved");
-    sessionStorage.setItem("favoriteMovies", JSON.stringify(updateList));
-    setIsFavorite(!isFavorite);
+    let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
+    if (!favoriteMovies) {
+      favoriteMovies = [];
+    }
+    if (movies && movies.slug) {
+      const updateList = isFavorite
+        ? favoriteMovies.filter((movie) => movie.slug !== movies.slug)
+        : [...favoriteMovies, movies];
+      toast.success("saved");
+      localStorage.setItem("favoriteMovies", JSON.stringify(updateList));
+      setIsFavorite(!isFavorite);
+    }
+    console.log(favoriteMovies);
   };
+
   useEffect(() => {
     const favoriteMovies =
-      JSON.parse(sessionStorage.getItem("favoriteMovies")) || [];
+      JSON.parse(localStorage.getItem("favoriteMovies")) || [];
     const found = favoriteMovies.find((movie) => movie.slug === movies.slug);
     setIsFavorite(!!found);
+    console.log(favoriteMovies);
   }, [movies]);
 
   function getMiddleName(name) {
@@ -158,7 +164,7 @@ const HomePageDetails = () => {
                     />
                   )}
                   <div
-                    onClick={() => handleAddFavorite()}
+                    onClick={handleAddFavorite}
                     className={`w-full md:p-4 p-2 md:text-base text-sm font-medium hover:opacity-8 text-nowrap transition-all`}
                   >
                     {isFavorite ? " Remove to Favorite" : " Add to Favorite"}
@@ -215,7 +221,7 @@ const HomePageDetails = () => {
                         <img className="pl-3" src={addFvr} alt="" />
                       )}
                       <div
-                        onClick={() => handleAddFavorite()}
+                        onClick={handleAddFavorite}
                         className={`w-full p-4 text-base font-medium hover:opacity-8 text-nowrap transition-al`}
                       >
                         {isFavorite
@@ -300,14 +306,14 @@ const HomePageDetails = () => {
             </div>
 
             <div className="my-8 md:my-14 lg:my-16">
-              <iframe
+              {/* <iframe
                 src={sever}
                 width="100%"
                 // height="580px"
                 className="rounded-lg md:h-[580px] h-[300px]"
                 allowFullScreen
                 sandbox
-              ></iframe>
+              ></iframe> */}
             </div>
             <div className="mt-8 md:mt-14">
               <p className="text-base font-semibold md:text-xl">EPISODE LIST</p>
