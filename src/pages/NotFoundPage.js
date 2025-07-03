@@ -15,7 +15,7 @@ const NotFoundPage = () => {
           The page you are looking for might have been removed had its name
           changed or is temporarily unavailable.
         </p>
-        <NavLink to="/the-moviess" className="p-4 mx-5 text-white bg-green-400 rounded-lg">
+        <NavLink to="/" className="p-4 mx-5 text-white bg-green-400 rounded-lg">
           Home Page
         </NavLink>
       </div>

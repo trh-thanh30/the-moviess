@@ -59,7 +59,7 @@ const SignUpPage = () => {
         });
 
         setLoading(false);
-        navigate("/the-moviess");
+        navigate("/");
         toast.success(`Sign up successfully !!! Hello ${values.fullName} 😽👋`);
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {

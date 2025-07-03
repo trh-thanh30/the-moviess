@@ -18,12 +18,12 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/the-moviess" element={<HomePage></HomePage>}></Route>
+        <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>
         <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
         <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
         <Route
-          path="/the-moviess/signle-movies"
+          path="/signle-movies"
           element={<TrendingPage></TrendingPage>}
         ></Route>
 

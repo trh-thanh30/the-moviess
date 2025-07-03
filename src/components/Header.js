@@ -178,7 +178,7 @@ const Header = () => {
                           ? "text-[#c40f62]  hover:text-[#c40f62]"
                           : "hover:text-[#c40f62] transition-colors "
                       }
-                      to={"/the-moviess/signle-movies"}
+                      to={"/signle-movies"}
                     >
                       Phim Lẻ
                     </NavLink>
@@ -445,7 +445,7 @@ const Header = () => {
           </div>
 
           <NavLink
-            to={"/the-moviess"}
+            to={"/"}
             className="flex items-center md:gap-x-3 gap-x-1 immage__header-logo"
           >
             <img src={logoMovies} className="md:w-[68px] w-[42px]  " alt="" />
@@ -455,7 +455,7 @@ const Header = () => {
           <div className="hide-on-tablet">
             <div className="flex items-center text-base font-medium text-[#1A162E] gap-x-8">
               <NavLink
-                to={"/the-moviess"}
+                to={"/"}
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#c40f62] hover:text-[#c40f62] "
@@ -494,7 +494,7 @@ const Header = () => {
                           ? "text-[#c40f62]  hover:text-[#c40f62]"
                           : "hover:text-[#c40f62] transition-colors "
                       }
-                      to={"/the-moviess/signle-movies"}
+                      to={"/signle-movies"}
                     >
                       Phim Lẻ
                     </NavLink>

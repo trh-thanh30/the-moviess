@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/image/the-moviess.svg";
+import logo from "../assets/image.svg";
 import logoMovies from "../assets/image/logo-image.svg";
 import facebook from "../assets/image/facebook.svg";
 import youtube from "../assets/image/youtube.svg";
@@ -23,7 +23,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer__row md:pt-[50px] pt-[36px]">
           <div className="footer__col">
-            <NavLink to={"/the-moviess"} className="flex md:gap-x-4 gap-x-2">
+            <NavLink to={"/"} className="flex md:gap-x-4 gap-x-2">
               <img className="" src={logoMovies} alt="" />
               <img src={logo} alt="" />
             </NavLink>
