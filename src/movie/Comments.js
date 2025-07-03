@@ -8,35 +8,6 @@ import { NavLink } from "react-router-dom";
 const Comments = () => {
   const fakeAPI = [
     {
-      id: 1,
-      image:
-        "https://inkythuatso.com/uploads/thumbnails/800/2023/03/6-anh-dai-dien-trang-inkythuatso-03-15-26-36.jpg",
-      name: "Huu Thanh",
-      comment: " Neu duoc moi nguoi ung ho to tai 0344247918 MB nhe ❤️",
-      liked: false,
-      date: new Date().toLocaleDateString() + "",
-    },
-    {
-      id: 2,
-      image:
-        " https://inkythuatso.com/uploads/thumbnails/800/2023/03/9-anh-dai-dien-trang-inkythuatso-03-15-27-03.jpg",
-      name: "Tran Huu Giang",
-      comment:
-        "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has a shred of evidence connected to Navy and Marine Corps personnel, regardless of rank or position.",
-      liked: false,
-      date: new Date().toLocaleDateString() + "",
-    },
-    {
-      id: 3,
-      image:
-        "https://inkythuatso.com/uploads/thumbnails/800/2023/03/6-anh-dai-dien-trang-inkythuatso-03-15-26-36.jpg",
-      name: "Tran Huu Truong",
-      comment:
-        "Các trại sinh bỏ lại Isla Nublar sau lưng, nhưng bị dạt lên một lãnh địa mới lạ lẫm đầy rẫy những nguy hiểm và những bí mật được canh phòng cẩn mật.",
-      liked: false,
-      date: new Date().toLocaleDateString() + "",
-    },
-    {
       id: 4,
       image:
         "https://yt3.googleusercontent.com/fMx4Byd097J-seUkhanyC6RUXYNuUvnZnh27hS-IVd7sHDLfGYsGk4wJnRyGgi6glP7p8lsbmg=s900-c-k-c0x00ffffff-no-rj",
@@ -122,8 +93,7 @@ const Comments = () => {
               <p className="text-lg font-semibold text-slate-500">Anmonymus</p>
               <NavLink
                 to={"/sign-up"}
-                className="p-2 text-sm font-medium text-green-500 rounded-lg md:text-base bg-green-50"
-              >
+                className="p-2 text-sm font-medium text-green-500 rounded-lg md:text-base bg-green-50">
                 Sign Up
               </NavLink>
             </div>
@@ -140,8 +110,7 @@ const Comments = () => {
         />
         <button
           onClick={handleSubmitComment}
-          className="p-2 text-white bg-green-500 rounded-lg md:p-4"
-        >
+          className="p-2 text-white bg-green-500 rounded-lg md:p-4">
           {loading ? <div className="loader"></div> : "SEND"}
         </button>
       </div>
@@ -149,8 +118,7 @@ const Comments = () => {
         commentAPI.slice(0, visibleComments).map((item) => (
           <div
             key={item.id}
-            className="flex lg:mt-4 md:mt-3 mt-2 gap-x-2  xl:w-[80%] lg:w-[90%] md:w-[100%] comment_user p-2"
-          >
+            className="flex lg:mt-4 md:mt-3 mt-2 gap-x-2  xl:w-[80%] lg:w-[90%] md:w-[100%] comment_user p-2">
             <img
               src={item.image}
               alt=""
@@ -164,8 +132,7 @@ const Comments = () => {
               <p className="text-xs md:text-sm lg:text-base">{item.comment}</p>
               <button
                 className="mt-1 cursor-pointer"
-                onClick={() => handLiked(item.id)}
-              >
+                onClick={() => handLiked(item.id)}>
                 {item.liked ? (
                   <img className="md:w-[20px] w-[14px]" src={heartRed} alt="" />
                 ) : (
@@ -178,8 +145,7 @@ const Comments = () => {
       {visibleComments < commentAPI.length && (
         <button
           onClick={handleLoadMore}
-          className="block p-2 mx-auto mt-5 text-sm text-white uppercase bg-green-500 rounded-lg md:p-3 md:text-base"
-        >
+          className="block p-2 mx-auto mt-5 text-sm text-white uppercase bg-green-500 rounded-lg md:p-3 md:text-base">
           {loading ? <div className="loader"></div> : "Load More"}
         </button>
       )}
