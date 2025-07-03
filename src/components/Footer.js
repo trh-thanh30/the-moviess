@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/image.svg";
+// import logo from "../assets/image.svg";
 import logoMovies from "../assets/image/logo-image.svg";
 import facebook from "../assets/image/facebook.svg";
 import youtube from "../assets/image/youtube.svg";
@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="footer__col">
             <NavLink to={"/"} className="flex md:gap-x-4 gap-x-2">
               <img className="" src={logoMovies} alt="" />
-              <img src={logo} alt="" />
+              <img src={logoMovies} alt="" />
             </NavLink>
             <p className="footer__desc hide-on-tablet">
               The Movies - Made by Tran Huu Thanh, a freshman studying computer
